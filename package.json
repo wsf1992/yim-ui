@@ -2,6 +2,8 @@
   "name": "yim-ui",
   "version": "1.0.5",
   "type": "module",
+  "repository": "https://github.com/wsf1992/ymi-ui.git",
+  "homepage": "https://github.com/wsf1992/ymi-ui",
   "main": "dist/main.js",
   "exports": {
     "import": "./dist/main.mjs",
