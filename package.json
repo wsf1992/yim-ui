@@ -1,0 +1,35 @@
+{
+  "name": "yim-ui",
+  "version": "1.0.5",
+  "type": "module",
+  "main": "dist/main.js",
+  "exports": {
+    "import": "./dist/main.mjs",
+    "require": "./dist/main.js"
+  },
+  "scripts": {
+    "serve": "vite",
+    "serve:dev": "vite --mode development",
+    "serve:prod": "vite --mode production",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "build:prod": "vite build --mode production"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^1.6.2",
+    "axios": "^0.25.0",
+    "vite": "^4.1.4",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.3",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "sass": "^1.49.0",
+    "typescript": "^4.7.4",
+    "vite-plugin-vue2": "^1.9.2",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "description": "",
+  "author": "",
+  "license": "ISC"
+}
