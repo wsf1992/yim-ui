@@ -217,9 +217,9 @@ export default {
             this.$nextTick(() => {
                 this.$emit('change', item)
                 // 以下代码可以触发  el-form-item 的change 校验
-                // try {
-                //     this.$parent.validate('change')
-                // } catch (error) {}
+                if(this.$parent) {
+                    this.$parent.validate('change')
+                }
             })
         },
         getkeyValue(e) {
