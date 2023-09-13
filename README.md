@@ -8,17 +8,18 @@ For node.js, you can use this command to install:
 
 ## Usage
 
-You could use like this:
+你可以引入整个 YimUi:
 
 ```JavaScript
 import YimUi from 'yim-ui'
+import 'yim-ui/dist/style.css'
 Vue.use(YimUi)
 ```
 
-If you use node.js, you should require the module first:
+你也可以按需引入部分组件:(然后进行全局或者局部注册)
 
 ```JavaScript
-import queue from 'js-queue';
+import { YmButton } from 'yim-ui';
 ```
 
 ## Example
