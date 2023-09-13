@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import { createVuePlugin } from 'vite-plugin-vue2'
+import vue from '@vitejs/plugin-vue2'
 import path from 'path';
 
 const HOST = "0.0.0.0"
@@ -31,7 +31,7 @@ export default (/** if you want to use mode : { mode }*/) => {
       },
     },
     plugins: [
-      createVuePlugin(/* options */),
+      vue(/* options */),
     ],
   })
 }
