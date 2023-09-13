@@ -1,6 +1,9 @@
 {
   "name": "yim-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
+  "files": [
+    "dist/**/*"
+  ],
   "type": "module",
   "repository": "https://github.com/wsf1992/ymi-ui.git",
   "homepage": "https://github.com/wsf1992/ymi-ui",
