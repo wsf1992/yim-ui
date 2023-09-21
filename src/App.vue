@@ -1,14 +1,11 @@
 <template>
-  <div id="app">
-    <main>
-      <RouterView />
-    </main>
+  <div>
+    12312321321
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "App",
-});
+export default {
+  name: "App"
+}
 </script>

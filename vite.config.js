@@ -25,10 +25,7 @@ export default (/** if you want to use mode : { mode }*/) => {
         entry: path.resolve(__dirname, './src/components/main.ts'),
         formats: ['es', 'cjs'],
         fileName: 'main'
-      },
-      rollupOptions: {
-        external: ['vue']
-      },
+      }
     },
     plugins: [
       vue(/* options */),

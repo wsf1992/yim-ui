@@ -1,8 +1,9 @@
 {
   "name": "yim-ui",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "src/components/**/*"
   ],
   "type": "module",
   "repository": "https://github.com/wsf1992/ymi-ui.git",
@@ -14,17 +15,11 @@
   },
   "scripts": {
     "serve": "vite",
-    "serve:dev": "vite --mode development",
-    "serve:prod": "vite --mode production",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
-    "build:prod": "vite build --mode production"
+    "build": "vite build"
   },
   "dependencies": {
     "vite": "^4.4.9",
-    "vue": "^2.7.0",
-    "vue-router": "^3.5.3",
-    "vuex": "^3.6.2"
+    "vue": "^2.7.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue2": "^2.2.0",
