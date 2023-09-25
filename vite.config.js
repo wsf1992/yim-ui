@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue2'
+import babel from '@rollup/plugin-babel';
+
 import path from 'path';
 
 const HOST = "0.0.0.0"
@@ -31,6 +33,7 @@ export default (/** if you want to use mode : { mode }*/) => {
       },
     },
     plugins: [
+      babel({babelHelpers: 'bundled'}),
       vue(/* options */),
     ],
   })
