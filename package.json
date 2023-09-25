@@ -18,6 +18,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "element-ui": "^2.15.14",
     "vite": "^4.4.9",
     "vue": "^2.7.0"
   },
