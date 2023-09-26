@@ -36,7 +36,7 @@ export default (/** if you want to use mode : { mode }*/) => {
     },
     plugins: [
       commonjs(),
-,      babel({babelHelpers: 'bundled'}),
+// ,      babel({babelHelpers: 'bundled'}),
       vue(/* options */),
     ],
   })
