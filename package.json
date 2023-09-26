@@ -1,6 +1,6 @@
 {
   "name": "yim-ui",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "files": [
     "dist/**/*",
     "src/components/**/*"
@@ -28,6 +28,7 @@
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.22.20",
     "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
     "@vitejs/plugin-vue2": "^2.2.0",
     "babel-plugin-component": "^1.1.1",
     "sass": "^1.49.0",
