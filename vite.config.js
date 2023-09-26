@@ -23,6 +23,7 @@ export default (/** if you want to use mode : { mode }*/) => {
       ],
     },
     build: {
+      target: ['es2015'],
       lib: {
         entry: path.resolve(__dirname, './src/components/main.ts'),
         formats: ['es', 'cjs'],
