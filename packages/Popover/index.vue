@@ -1,12 +1,10 @@
 <template>
     <el-popover :placement="placement" :width="width" trigger="click" v-model="visible" ref="ymPopover" popper-class="ym-popover">
-        <div style="padding-top: 28px;">
-            <slot></slot>
-        </div>
+        <slot></slot>
     </el-popover>
 </template>
 
-<style>
+<style scoped>
 .ym-popover {
     background: #ffffff;
     box-shadow: 2px 4px 20px 1px rgba(167, 167, 167, 0.35);
@@ -16,70 +14,71 @@
 
 <script>
 import Popover from "element-ui/lib/popover";
+import "element-ui/lib/theme-chalk/popover.css";
 
 export default {
-    name: 'YmPopover',
+    name: "YmPopover",
     components: {
-        'el-popover': Popover
+        "el-popover": Popover,
     },
     props: {
         value: {
             type: Boolean,
-            default: false
+            default: false,
         },
         width: {
             type: String,
-            default: '500'
+            default: "500",
         },
         placement: {
             type: String,
-            default: 'bottom'
-        }
+            default: "bottom",
+        },
     },
     computed: {
         visible: {
             get() {
-                return this.value
+                return this.value;
             },
             set(val) {
-                this.$emit('input', val)
-            }
-        }
+                this.$emit("input", val);
+            },
+        },
     },
     watch: {
         value: {
             handler(val) {
-                this.handleValueChange(val)
-            }
-        }
+                this.handleValueChange(val);
+            },
+        },
     },
     methods: {
         handleValueChange(val) {
             if (val) {
-                const pop = this.$refs.ymPopover
-                pop.referenceElm = window.event.target
-                pop.createPopper()
-                pop.doShow()
+                const pop = this.$refs.ymPopover;
+                pop.referenceElm = window.event.target;
+                pop.createPopper();
+                pop.doShow();
             } else {
-                this.doClose()
+                this.doClose();
             }
         },
         doClose(event) {
             try {
-                const target = event.target
-                const popover = this.$refs.ymPopover.popperElm
+                const target = event.target;
+                const popover = this.$refs.ymPopover.popperElm;
                 if (!popover.contains(target)) {
-                    this.visible = false
+                    this.visible = false;
                 }
             } catch (error) {}
-        }
+        },
     },
     created() {
-        document.addEventListener('click', this.doClose, true)
+        document.addEventListener("click", this.doClose, true);
     },
     destroyed() {
-        document.removeEventListener('click', this.doClose, true)
-    }
-}
+        document.removeEventListener("click", this.doClose, true);
+    },
+};
 </script>
 

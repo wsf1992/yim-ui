@@ -1,5 +1,5 @@
 // 全局引入 element css 文件，组件在使用时引入
-import 'element-ui/lib/theme-chalk/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
 
 import YmButton from "./Button/index.vue";
 import YmSelect from "./Select/index.vue";
