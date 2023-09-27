@@ -15,8 +15,13 @@
 </style>
 
 <script>
+import Popover from "element-ui/lib/popover";
+
 export default {
     name: 'YmPopover',
+    components: {
+        'el-popover': Popover
+    },
     props: {
         value: {
             type: Boolean,

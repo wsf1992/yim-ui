@@ -1,12 +1,11 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue2'
-import babel from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue2";
+import commonjs from "@rollup/plugin-commonjs";
 
-import path from 'path';
+import path from "path";
 
-const HOST = "0.0.0.0"
-const REPLACEMENT = `${path.resolve(__dirname, './src')}/`
+const HOST = "0.0.0.0";
+const REPLACEMENT = `${path.resolve(__dirname, "./src")}/`;
 
 export default (/** if you want to use mode : { mode }*/) => {
   return defineConfig({
@@ -18,28 +17,26 @@ export default (/** if you want to use mode : { mode }*/) => {
     resolve: {
       alias: [
         {
-          find: '@/',
+          find: "@/",
           replacement: REPLACEMENT,
         },
       ],
+      extensions: [".js", ".ts", ".vue", ".json"],
     },
     build: {
-      target: ['es2015'],
+      target: ["es2015"],
       lib: {
-        entry: path.resolve(__dirname, './src/components/main.ts'),
-        formats: ['es', 'cjs'],
-        fileName: 'main'
+        entry: path.resolve(__dirname, "./src/components/main.ts"),
+        formats: ["es", "cjs"],
+        fileName: "main",
       },
       rollupOptions: {
-        external: ['vue']
+        external: ["vue"],
       },
     },
     plugins: [
       commonjs(),
-// ,      babel({babelHelpers: 'bundled'}),
       vue(/* options */),
     ],
-  })
-}
-
-
+  });
+};

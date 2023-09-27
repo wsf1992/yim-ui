@@ -1,6 +1,6 @@
 {
   "name": "yim-ui",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "files": [
     "dist/**/*",
     "src/components/**/*"
@@ -10,8 +10,8 @@
   "homepage": "https://github.com/wsf1992/ymi-ui",
   "main": "dist/main.js",
   "exports": {
-    "import": "./dist/main.mjs",
-    "require": "./dist/main.js"
+    "import": "./dist/main.js",
+    "require": "./dist/main.cjs"
   },
   "scripts": {
     "serve": "vite",
@@ -19,18 +19,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "babel-plugin-import": "^1.13.8",
     "element-ui": "^2.15.14",
     "vite": "^4.4.9",
     "vue": "^2.7.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.0",
-    "@babel/preset-env": "^7.22.20",
-    "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@vitejs/plugin-vue2": "^2.2.0",
-    "babel-plugin-component": "^1.1.1",
     "sass": "^1.49.0",
     "typescript": "^4.7.4"
   },
