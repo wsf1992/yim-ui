@@ -2,7 +2,7 @@
   <me></me>
 </template>
 <script>
-import Me from "../../README.md";
+import Me from "./me.md";
 export default {
   components: {
     Me,

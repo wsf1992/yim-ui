@@ -1,19 +1,21 @@
 <template>
     <div class="flex" id="app">
-        <left-menu style="width: 200px;"></left-menu>
-        <router-view></router-view>
+        <left-menu style="width: 200px"></left-menu>
+        <div class="flex-auto scroll" style="padding: 30px">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
-import LeftMenu from "./components/menu.vue";
+import LeftMenu from './components/menu.vue'
 
 export default {
     components: {
-        LeftMenu,
+        LeftMenu
     },
-    name: "App",
-};
+    name: 'App'
+}
 </script>
 <style>
 blockquote,

@@ -19,7 +19,7 @@
 </template>
 <script>
 export default {
-  name: "YmButton",
+  name: "MiButton",
   props: {
     icon: {
       type: String,

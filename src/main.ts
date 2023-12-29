@@ -2,6 +2,9 @@ import Vue, { h } from "vue";
 
 import App from "@/App.vue";
 
+// md 文件添加样式
+import 'github-markdown-css'
+
 // 引入路由
 import router from "./router/index";
 import VueRouter from "vue-router";

@@ -1,16 +1,23 @@
 // 全局引入 element css 文件，组件在使用时引入
 // import 'element-ui/lib/theme-chalk/index.css';
 
-import YmButton from "./Button/index.vue";
-import YmSelect from "./Select/index.vue";
-import YmPopover from "./Popover/index.vue";
-
+import MiButton from './Button/index.vue'
+import MiSelect from './Select/index.vue'
+import MiPopover from './Popover/index.vue'
+import MiDialog from './Dialog/index.vue'
+import MiCard from './Card/index.vue'
+import MiListDisplay from './ListDisplay/display.vue'
+import MiListOption from './ListDisplay/option.vue'
 export default {
-  install: function (Vue) {
-    Vue.component(YmButton.name, YmButton);
-    Vue.component(YmSelect.name, YmSelect);
-    Vue.component(YmPopover.name, YmPopover);
-  },
-};
+    install: function (Vue) {
+        Vue.component(MiButton.name, MiButton)
+        Vue.component(MiSelect.name, MiSelect)
+        Vue.component(MiPopover.name, MiPopover)
+        Vue.component(MiDialog.name, MiDialog)
+        Vue.component(MiCard.name, MiCard)
+        Vue.component(MiListDisplay.name, MiListDisplay)
+        Vue.component(MiListOption.name, MiListOption)
+    }
+}
 
-export { YmButton, YmSelect, YmPopover };
+export { MiButton, MiSelect, MiPopover, MiDialog, MiCard, MiListDisplay, MiListOption }

@@ -7,7 +7,7 @@
     popper-class="width-max-min"
     @after-leave="popLeave"
   >
-    <ul class="padd-t-10 padd-b-10">
+    <ul class="p-t-10 p-b-10">
       <el-input
         v-if="isQuery"
         v-model="query"
@@ -56,8 +56,8 @@
 
 <script>
 export default {
-  name: "YmSelectNew",
-  componentsName: "YmSelectNew",
+  name: "MiSelect",
+  componentsName: "MiSelect",
   props: {
     value: {
       type: [String, Number],
@@ -217,5 +217,20 @@ li:hover {
 }
 li.active {
   color: #229dff;
+}
+.p-t-10 {
+  padding-top: 10px;
+}
+.p-b-10 {
+  padding-bottom: 10px;
+}
+.flex {
+  display: flex;
+}
+.flex-cross-center {
+  align-items: center !important;
+}
+.flex-auto {
+  flex: 1 1 auto;
 }
 </style>

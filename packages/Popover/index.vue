@@ -13,72 +13,71 @@
 </style>
 
 <script>
-import Popover from "element-ui/lib/popover";
-import "element-ui/lib/theme-chalk/popover.css";
+import { Popover } from 'element-ui'
+import 'element-ui/lib/theme-chalk/popover.css'
 
 export default {
-    name: "YmPopover",
+    name: 'MiPopover',
     components: {
-        "el-popover": Popover,
+        'el-popover': Popover
     },
     props: {
         value: {
             type: Boolean,
-            default: false,
+            default: false
         },
         width: {
             type: String,
-            default: "500",
+            default: '500'
         },
         placement: {
             type: String,
-            default: "bottom",
-        },
+            default: 'bottom'
+        }
     },
     computed: {
         visible: {
             get() {
-                return this.value;
+                return this.value
             },
             set(val) {
-                this.$emit("input", val);
-            },
-        },
+                this.$emit('input', val)
+            }
+        }
     },
     watch: {
         value: {
             handler(val) {
-                this.handleValueChange(val);
-            },
-        },
+                this.handleValueChange(val)
+            }
+        }
     },
     methods: {
         handleValueChange(val) {
             if (val) {
-                const pop = this.$refs.ymPopover;
-                pop.referenceElm = window.event.target;
-                pop.createPopper();
-                pop.doShow();
+                const pop = this.$refs.ymPopover
+                pop.referenceElm = window.event.target
+                pop.createPopper()
+                pop.doShow()
             } else {
-                this.doClose();
+                this.doClose()
             }
         },
         doClose(event) {
             try {
-                const target = event.target;
-                const popover = this.$refs.ymPopover.popperElm;
+                const target = event.target
+                const popover = this.$refs.ymPopover.popperElm
                 if (!popover.contains(target)) {
-                    this.visible = false;
+                    this.visible = false
                 }
             } catch (error) {}
-        },
+        }
     },
     created() {
-        document.addEventListener("click", this.doClose, true);
+        document.addEventListener('click', this.doClose, true)
     },
     destroyed() {
-        document.removeEventListener("click", this.doClose, true);
-    },
-};
+        document.removeEventListener('click', this.doClose, true)
+    }
+}
 </script>
-
