@@ -21,6 +21,6 @@ export default (/** if you want to use mode : { mode }*/) => {
         external: ["vue"],
       },
     },
-    plugins: [commonjs(), vue(/* options */)],
+    plugins: [vue(/* options */)],
   });
 };
