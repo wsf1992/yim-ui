@@ -1,8 +1,10 @@
 <template>
     <div class="box" :style="{ height: height }">
         <div class="flex-justify-between flex-cross-bottom">
-            <div class="box-title dis-flex">
-                {{ title }}
+            <div class="dis-flex flex-cross-center">
+                <div class="box-title">
+                    {{ title }}
+                </div>
                 <slot name="header-left"></slot>
             </div>
             <slot name="header-right"></slot>
@@ -57,5 +59,8 @@ export default {
 }
 .dis-flex {
     display: flex;
+}
+.flex-cross-center {
+    align-items: center !important;
 }
 </style>
