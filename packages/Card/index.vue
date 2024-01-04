@@ -1,8 +1,8 @@
 <template>
-    <div class="box" :style="{ height: height }">
+    <div class="mi-box" :style="{ height: height }">
         <div class="flex-justify-between flex-cross-bottom">
             <div class="dis-flex flex-cross-center">
-                <div class="box-title dis-flex">
+                <div class="mi-box-title dis-flex">
                     {{ title }}
                 </div>
                 <slot name="header-left"></slot>
@@ -28,21 +28,21 @@ export default {
 }
 </script>
 <style scoped>
-.box {
+.mi-box {
     background: #ffffff;
     box-shadow: 2px 4px 20px 0px rgba(150, 150, 150, 0.3);
     border-radius: 6px;
     border: 1px solid #edeef0;
     padding: 30px;
 }
-.box-title {
+.mi-box-title {
     font-size: 20px;
     font-family: NotoSansHans, NotoSansHans;
     font-weight: 400;
     color: #333333;
     line-height: 20px;
 }
-.box-title::before {
+.mi-box-title::before {
     content: '';
     display: block;
     width: 3px;
