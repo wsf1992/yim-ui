@@ -2,7 +2,7 @@
     <div class="box" :style="{ height: height }">
         <div class="flex-justify-between flex-cross-bottom">
             <div class="dis-flex flex-cross-center">
-                <div class="box-title">
+                <div class="box-title dis-flex">
                     {{ title }}
                 </div>
                 <slot name="header-left"></slot>
