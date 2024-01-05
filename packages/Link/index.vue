@@ -1,5 +1,5 @@
 <template>
-    <el-link type="primary" class="mi-link">
+    <el-link type="primary" class="mi-link" v-bind="$attrs" @click="$emit('click')">
         <slot>主要链接</slot>
     </el-link>
 </template>
@@ -8,6 +8,7 @@
 import { Link } from 'element-ui'
 export default {
     name: 'MiLink',
+    inheritAttrs: false,
     components: {
         ElLink: Link
     }
