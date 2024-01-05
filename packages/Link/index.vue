@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Link from 'element-ui'
+import { Link } from 'element-ui'
 export default {
     name: 'MiLink',
     components: {
