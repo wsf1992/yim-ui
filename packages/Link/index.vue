@@ -1,5 +1,5 @@
 <template>
-    <el-link type="primary">
+    <el-link type="primary" class="mi-link">
         <slot>主要链接</slot>
     </el-link>
 </template>
@@ -13,3 +13,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.mi-link >>> .el-link--inner {
+    line-height: 1 !important;
+}
+</style>
