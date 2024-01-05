@@ -7,6 +7,9 @@
             <template slot="title">
                 <span>基础组件</span>
             </template>
+            <el-menu-item-group title="basic">
+                <el-menu-item index="/link">文字link</el-menu-item>
+            </el-menu-item-group>
             <el-menu-item-group title="Form">
                 <el-menu-item index="/select">select</el-menu-item>
                 <el-menu-item index="1-2">选项2</el-menu-item>

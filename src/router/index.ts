@@ -7,9 +7,11 @@ const Dialog = () => import('@/views/dialog/index.vue')
 const Export = () => import('@/views/export/index.vue')
 const Card = () => import('@/views/card/index.vue')
 const ListDisplay = () => import('@/views/listDisplay/index.vue')
+const Link = () => import('@/views/link/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
+    { path: '/link', component: Link },
     { path: '/select', component: Select },
     { path: '/dialog', component: Dialog },
     { path: '/export', component: Export },
