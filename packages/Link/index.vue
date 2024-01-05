@@ -5,7 +5,11 @@
 </template>
 
 <script>
+import Link from 'element-ui'
 export default {
-    name: 'MiLink'
+    name: 'MiLink',
+    components: {
+        ElLink: Link
+    }
 }
 </script>
