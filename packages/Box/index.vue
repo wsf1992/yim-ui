@@ -1,5 +1,5 @@
 <template>
-    <div class="container" :style="{ 'padding-bottom': paddingBottom, 'border-width': borderWidth }">
+    <div class="mi-container" :style="{ 'padding-bottom': paddingBottom, 'border-width': borderWidth }">
         <div class="mar-b-20 flex-justify-between">
             <div class="fz-16 fw-400 cr-424242 l-h-1">
                 <slot name="title">{{ title }}</slot>
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.mi-container {
     border-bottom: 1px solid #edeef0;
     padding-top: 28px;
 }
