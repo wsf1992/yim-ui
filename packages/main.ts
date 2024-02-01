@@ -8,6 +8,7 @@ import MiDialog from './Dialog/index.vue'
 import MiCard from './Card/index.vue'
 import MiListDisplay from './ListDisplay/display.vue'
 import MiListOption from './ListDisplay/option.vue'
+import MiListTitle from './ListDisplay/title.vue'
 import MiLink from './Link/index.vue'
 import MiTitlePage from './Page/title.vue'
 import MiBox from './Box/index.vue'
@@ -20,10 +21,11 @@ export default {
         Vue.component(MiCard.name, MiCard)
         Vue.component(MiListDisplay.name, MiListDisplay)
         Vue.component(MiListOption.name, MiListOption)
+        Vue.component(MiListTitle.name, MiListTitle)
         Vue.component(MiLink.name, MiLink)
         Vue.component(MiTitlePage.name, MiTitlePage)
         Vue.component(MiBox.name, MiBox)
     }
 }
 
-export { MiButton, MiSelect, MiPopover, MiDialog, MiCard, MiListDisplay, MiListOption, MiLink, MiTitlePage, MiBox }
+export { MiButton, MiSelect, MiPopover, MiDialog, MiCard, MiListDisplay, MiListOption, MiListTitle, MiLink, MiTitlePage, MiBox }
