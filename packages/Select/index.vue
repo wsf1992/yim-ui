@@ -1,5 +1,5 @@
 <template>
-    <el-popover v-model="visible" placement="bottom-start" width="200" trigger="click" popper-class="width-max-min" @after-leave="popLeave">
+    <el-popover v-model="visible" placement="bottom-start" width="200" trigger="click" popper-class="padd-0" @after-leave="popLeave">
         <ul class="p-t-10 p-b-10">
             <el-input v-if="isQuery" v-model="query" :placeholder="placeholder" class="search-input" clearable size="small"></el-input>
             <div v-infinite-scroll="load_l_d" class="drop-ul" infinite-scroll-distance="10">
@@ -108,10 +108,7 @@ export default {
 }
 </script>
 <style>
-.width-max-min {
-    /* width: min-content !important; */
-    /* max-width: 180px; */
-    /* min-width: 110px; */
+.padd-0 {
     padding: 0px !important;
 }
 </style>
