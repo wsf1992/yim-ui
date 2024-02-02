@@ -1,25 +1,31 @@
 <template>
-    <div style="margin-left: 500px">
-        <mi-list-display v-model="value" @reset="reset" @submit="submit">
-            <mi-list-option label="111" value="a" disabled></mi-list-option>
-            <mi-list-title>111</mi-list-title>
-            <mi-list-option label="222" value="b"></mi-list-option>
-        </mi-list-display>
+    <div>
+        <mi-select v-model="sId" :data="list" isQuery placeholder="占位文本"></mi-select>
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            value: ['a']
-        }
-    },
-    methods: {
-        reset() {
-            console.log('重置')
-        },
-        submit() {
-            console.log('确定')
+            sId: '',
+            list: [
+                {
+                    label: '未选择',
+                    value: ''
+                },
+                {
+                    label: '选项11111111111111111111111111111111111111111111111111111111111111111111',
+                    value: '1'
+                },
+                {
+                    label: '选项2',
+                    value: '2'
+                },
+                {
+                    label: '选项3',
+                    value: '3'
+                }
+            ]
         }
     }
 }
