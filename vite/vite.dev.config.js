@@ -3,7 +3,9 @@ import vue from '@vitejs/plugin-vue2'
 import commonjs from '@rollup/plugin-commonjs'
 import Markdown from 'vite-plugin-md'
 import path from 'path'
+import Components from 'unplugin-vue-components/vite'
 
+import { ElementUiResolver } from 'unplugin-vue-components/resolvers'
 const HOST = '0.0.0.0'
 const REPLACEMENT = `${path.resolve(__dirname, '../src')}/`
 export default (/** if you want to use mode : { mode }*/) => {
@@ -33,7 +35,9 @@ export default (/** if you want to use mode : { mode }*/) => {
             outDir: 'dist'
         },
         plugins: [
-            
+            Components({
+                resolvers: [ElementUiResolver()],
+            }),
             commonjs(),
             vue({
                 include: [/\.vue$/, /\.md$/]

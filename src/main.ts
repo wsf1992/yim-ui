@@ -11,9 +11,9 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 // 引入 element-ui
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-Vue.use(ElementUI);
+// import ElementUI from "element-ui";
+// import "element-ui/lib/theme-chalk/index.css";
+// Vue.use(ElementUI);
 
 // 引入 yim-ui
 import YimUI from "../packages/main";
