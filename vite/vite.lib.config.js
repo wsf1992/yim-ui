@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue2";
+import Components from 'unplugin-vue-components/vite'
 
+import { ElementUiResolver } from 'unplugin-vue-components/resolvers'
 import path from "path";
 
 export default (/** if you want to use mode : { mode }*/) => {
@@ -20,6 +22,10 @@ export default (/** if you want to use mode : { mode }*/) => {
         external: ["vue"],
       },
     },
-    plugins: [vue(/* options */)],
+    plugins: [
+      Components({
+        resolvers: [ElementUiResolver()],
+      }),
+      vue(/* options */)],
   });
 };

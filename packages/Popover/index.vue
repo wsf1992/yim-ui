@@ -13,14 +13,8 @@
 </style>
 
 <script>
-import { Popover } from 'element-ui'
-import 'element-ui/lib/theme-chalk/popover.css'
-
 export default {
     name: 'MiPopover',
-    components: {
-        'el-popover': Popover
-    },
     props: {
         value: {
             type: Boolean,

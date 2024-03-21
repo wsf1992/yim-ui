@@ -5,13 +5,9 @@
 </template>
 
 <script>
-import { Link } from 'element-ui'
 export default {
     name: 'MiLink',
-    inheritAttrs: false,
-    components: {
-        ElLink: Link
-    }
+    inheritAttrs: false
 }
 </script>
 
