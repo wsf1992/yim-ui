@@ -12,7 +12,8 @@
             </el-menu-item-group>
             <el-menu-item-group title="Form">
                 <el-menu-item index="/select">select</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
+                <el-menu-item index="/title">title</el-menu-item>
+                <el-menu-item index="/content">content</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="others">
                 <el-menu-item index="dialog">Dialog</el-menu-item>
@@ -29,6 +30,9 @@
         </el-menu-item>
         <el-menu-item index="/card">
             <span slot="title">卡片</span>
+        </el-menu-item>
+        <el-menu-item index="/tabs">
+            <span slot="title">标签页</span>
         </el-menu-item>
         <el-menu-item index="/test">
             <span slot="title">测试</span>

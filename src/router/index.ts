@@ -8,6 +8,9 @@ const Export = () => import('@/views/export/index.vue')
 const Card = () => import('@/views/card/index.vue')
 const ListDisplay = () => import('@/views/listDisplay/index.vue')
 const Link = () => import('@/views/link/index.vue')
+const Tabs = () => import('@/views/tabs/index.vue')
+const Title = () => import('@/views/title/index.vue')
+const Content = () => import('@/views/content/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
@@ -16,7 +19,10 @@ const routes = [
     { path: '/dialog', component: Dialog },
     { path: '/export', component: Export },
     { path: '/card', component: Card },
-    { path: '/listdisplay', component: ListDisplay }
+    { path: '/listdisplay', component: ListDisplay },
+    { path: '/tabs', component: Tabs },
+    { path: '/title', component: Title },
+    { path: '/content', component: Content }
 ]
 
 export default new VueRouter({ routes })
