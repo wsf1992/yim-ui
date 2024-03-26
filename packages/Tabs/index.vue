@@ -44,12 +44,15 @@ export default {
 
 <style scoped>
 .mi-tabs-box {
-    border-bottom: 1px solid #edeef0;
+    border-bottom: 2px solid #edeef0;
     display: flex;
     justify-content: space-between;
 }
 .mi-tabs {
     flex: 1 1 auto;
+}
+.mi-tabs >>> .el-tabs__nav-scroll {
+    padding: 0 !important;
 }
 .mi-tabs >>> .el-tabs__item {
     font-size: 18px;
