@@ -25,6 +25,9 @@
         <el-menu-item index="/export">
             <span slot="title">导出列表</span>
         </el-menu-item>
+        <el-menu-item index="/upload">
+            <span slot="title">导入文件</span>
+        </el-menu-item>
         <el-menu-item index="/listdisplay">
             <span slot="title">列表展示</span>
         </el-menu-item>

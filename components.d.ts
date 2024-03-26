@@ -20,6 +20,7 @@ declare module 'vue' {
     ElSubmenu: typeof import('element-ui/lib/submenu')['default']
     ElTabPane: typeof import('element-ui/lib/tab-pane')['default']
     ElTabs: typeof import('element-ui/lib/tabs')['default']
+    ElUpload: typeof import('element-ui/lib/upload')['default']
     Menu: typeof import('./src/components/menu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

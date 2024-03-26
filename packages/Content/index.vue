@@ -7,7 +7,7 @@
             </div>
         </div>
         <div>
-            <slot name="right"></slot>
+            <slot></slot>
         </div>
     </div>
 </template>
