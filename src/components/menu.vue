@@ -16,10 +16,10 @@
                 <el-menu-item index="/content">content</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="others">
-                <el-menu-item index="dialog">Dialog</el-menu-item>
+                <el-menu-item index="/dialog">Dialog</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="page">
-                <el-menu-item index="1-3">tab Page</el-menu-item>
+                <el-menu-item index="/pagination">Pagination</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="/export">

@@ -12,6 +12,7 @@ const Tabs = () => import('@/views/tabs/index.vue')
 const Title = () => import('@/views/title/index.vue')
 const Content = () => import('@/views/content/index.vue')
 const Upload = () => import('@/views/upload/index.vue')
+const Pagination = () => import('@/views/pagination/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
@@ -25,6 +26,7 @@ const routes = [
     { path: '/title', component: Title },
     { path: '/content', component: Content },
     { path: '/upload', component: Upload },
+    { path: '/pagination', component: Pagination }
 ]
 
 export default new VueRouter({ routes })
