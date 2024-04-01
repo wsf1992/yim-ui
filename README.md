@@ -18,7 +18,7 @@ yim-ui 是在 Vue2.7 版本上，基于 element-ui 进行二次开发的组件�
 
 For node.js, you can use this command to install:
 
-    npm install yim-ui -Da
+    npm install yim-ui -D
 
 ## Usage
 

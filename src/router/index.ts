@@ -8,11 +8,11 @@ const Export = () => import('@/views/export/index.vue')
 const Card = () => import('@/views/card/index.vue')
 const ListDisplay = () => import('@/views/listDisplay/index.vue')
 const Link = () => import('@/views/link/index.vue')
-const Tabs = () => import('@/views/tabs/index.vue')
-const Title = () => import('@/views/title/index.vue')
-const Content = () => import('@/views/content/index.vue')
-const Upload = () => import('@/views/upload/index.vue')
-const Pagination = () => import('@/views/pagination/index.vue')
+const Tabs = () => import('@/views/Tabs/index.vue')
+const Title = () => import('@/views/Title/index.vue')
+const Content = () => import('@/views/Content/index.vue')
+const Upload = () => import('@/views/Upload/index.vue')
+const Pagination = () => import('@/views/Pagination/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },

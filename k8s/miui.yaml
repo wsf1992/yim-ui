@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: miui
+    labels:
+        app: miui
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app.kubernetes.io/name: miui
+    template:
+        metadata:
+            labels:
+                app.kubernetes.io/name: miui
+        spec:
+            containers:
+                - name: miui
+                  image: registry.cn-beijing.aliyuncs.com/zyywsf/mi-ui:v1.0.0
+                  resources:
+                      limits:
+                          cpu: 300m
+                          memory: 300Mi
+                      requests:
+                          cpu: 100m
+                          memory: 100Mi
+                  ports:
+                      - containerPort: 80
+                        name: miui-svc
