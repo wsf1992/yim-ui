@@ -20,6 +20,7 @@
             </el-menu-item-group>
             <el-menu-item-group title="page">
                 <el-menu-item index="/pagination">Pagination</el-menu-item>
+                <el-menu-item index="/titlepage">Titlepage</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="/export">
