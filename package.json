@@ -1,22 +1,32 @@
 {
     "name": "yim-ui",
-    "version": "1.0.50",
+    "version": "1.0.51",
     "files": [
         "lib/**/*",
-        "packages/**/*"
+        "packages/**/*",
+        "dist/**/*",
+        "util/**/*"
     ],
     "type": "module",
     "repository": "https://github.com/wsf1992/ymi-ui.git",
     "homepage": "https://github.com/wsf1992/ymi-ui",
     "main": "lib/main.js",
     "exports": {
-        "import": "./lib/main.js",
-        "require": "./lib/main.cjs"
+        ".": {
+            "import": "./lib/main.js",
+            "require": "./lib/main.cjs"
+        },
+        "./css": "./lib/style.css",
+        "./utils": {
+            "import": "./util/index.js",
+            "require": "./util/index.cjs"
+        }
     },
     "scripts": {
         "serve": "vite --config ./vite/vite.dev.config.js",
         "build:lib": "vite build --config ./vite/vite.lib.config.js",
         "build:app": "vite build --config ./vite/vite.app.config.js",
+        "build:utils": "vite build --config ./vite/vite.utils.config.js",
         "preview": "vite preview"
     },
     "dependencies": {
