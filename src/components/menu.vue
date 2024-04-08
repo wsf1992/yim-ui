@@ -38,6 +38,14 @@
         <el-menu-item index="/tabs">
             <span slot="title">标签页</span>
         </el-menu-item>
+        <el-submenu index="2">
+            <template slot="title">
+                <span>公共方法</span>
+            </template>
+            <el-menu-item-group title="basic">
+                <el-menu-item index="/throttled">throttled</el-menu-item>
+            </el-menu-item-group>
+        </el-submenu>
         <el-menu-item index="/test">
             <span slot="title">测试</span>
         </el-menu-item>

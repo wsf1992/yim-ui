@@ -14,6 +14,7 @@ const Content = () => import('@/views/Content/index.vue')
 const Upload = () => import('@/views/Upload/index.vue')
 const Pagination = () => import('@/views/Pagination/index.vue')
 const TitlePage = () => import('@/views/Page/Title/index.vue')
+const Throttled = () => import('@/views/Methods/Throttled/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
@@ -28,7 +29,8 @@ const routes = [
     { path: '/content', component: Content },
     { path: '/upload', component: Upload },
     { path: '/pagination', component: Pagination },
-    { path: '/titlepage', component: TitlePage }
+    { path: '/titlepage', component: TitlePage },
+    { path: '/throttled', component: Throttled },
 ]
 
 export default new VueRouter({ routes })
