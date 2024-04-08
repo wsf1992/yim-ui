@@ -1,19 +1,15 @@
-export default function (uniqueFn, fn, delay = 1000, reply = false) {
+export default function (delay = 1000) {
     const map = new Map()
-    return async function (arg1, arg2) {
-        const id = uniqueFn.apply(this, arg1)
+    return async function (uniqueFn, fn, failFn) {
+        const id = uniqueFn()
         if (!map.has(id)) {
-            let result = null
-            if (reply) {
-                result = await fn.apply(this, arg2)
-            } else {
-                fn.apply(this, arg2)
-            }
-            map.set(id, result)
+            await fn()
+            map.set(id, true)
             setTimeout(() => {
                 map.delete(id)
             }, delay)
+        } else {
+            failFn && failFn()
         }
-        if (reply) return map.get(id)
     }
 }
