@@ -1,6 +1,6 @@
 {
     "name": "yim-ui",
-    "version": "1.0.52",
+    "version": "1.0.53",
     "files": [
         "lib/**/*",
         "packages/**/*",
@@ -18,8 +18,8 @@
         },
         "./css": "./lib/style.css",
         "./utils": {
-            "import": "./util/index.js",
-            "require": "./util/index.cjs"
+            "import": "./util/main.js",
+            "require": "./util/main.cjs"
         }
     },
     "scripts": {
