@@ -1,107 +1,97 @@
 <template>
-    <base-dia-log v-model="visible" title="导出配置" :width="dialogWidth" :before-close="closeHandle" class="export-dialog">
-        <el-form ref="exportForm" label-position="right" :rules="exportRule" :model="exportForm" style="padding: 30px 26px 21px 0">
+    <mi-dialog title="导出配置" :width="dialogWidth" :before-close="closeHandle" v-model="visible">
+        <el-form label-position="right" ref="form" :rules="rules" :model="form" @submit.native.prevent class="mi-export" style="padding: 30px 26px 21px 0px">
             <el-form-item label="文件名称" label-width="104px" prop="name">
-                <el-input v-model.trim="exportForm.name" class="input-w-287" maxlength="50" size="small"></el-input>
+                <el-input class="input-34 input-w-287" v-model.trim="form.name" maxlength="50"></el-input>
             </el-form-item>
 
             <el-form-item label="导出数据" label-width="104px" prop="type">
-                <el-radio v-model="exportForm.type" label="1">{{ selectAllName }}</el-radio>
-                <el-radio v-show="currSelectShow" v-model="exportForm.type" label="2" :disabled="selectLines.length === 0 ? true : false">{{ currSelectName }}</el-radio>
+                <el-radio v-model="form.type" label="1">{{ selectAllName }}</el-radio>
+                <el-radio v-show="currSelectShow" v-model="form.type" label="2" :disabled="selectLines.length == '0' ? true : false">{{ currSelectName }}</el-radio>
             </el-form-item>
 
-            <el-form-item v-if="fieldShow" label="导出字段" label-width="104px" prop="field">
-                <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" class="f-l" @change="handleCheckAllChange">全选</el-checkbox>
-                <el-checkbox-group v-model="exportForm.field" class="field-list" @change="handleCheckedCitiesChange">
-                    <el-checkbox v-for="field in allFields" :key="field.prop" :label="field.prop" :disabled="field.disabled">
-                        {{ field.label }}
-                    </el-checkbox>
-                </el-checkbox-group>
+            <el-form-item label="导出字段" label-width="104px" prop="field" v-show="options.length">
+                <div class="field-box">
+                    <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange" class="f-l" style="margin-left: 16px; margin-right: 14px">全选</el-checkbox>
+                    <el-checkbox-group v-model="form.field" @change="handleCheckedChange" class="field-list">
+                        <slot></slot>
+                    </el-checkbox-group>
+                </div>
             </el-form-item>
         </el-form>
-
         <div class="flex-justify-center form-footer">
-            <el-button size="small" @click="closeHandle">取消</el-button>
-            <el-button size="small" type="primary" class="mar-l-20" :loading="btnLoading" @click="saveHandle">确认导出</el-button>
+            <el-button size="small" @click="closeHandle" :loading="btnLoading">取 消</el-button>
+            <el-button size="small" type="primary" @click="saveHandle" :loading="btnLoading" class="mar-l-20">确认导出</el-button>
         </div>
-    </base-dia-log>
+    </mi-dialog>
 </template>
 
 <script>
-import dayjs from 'dayjs'
-
 export default {
+    name: 'MiExport',
+    componentsName: 'MiExport',
+    provide() {
+        return {
+            export: this
+        }
+    },
     props: {
         value: {
             type: Boolean,
             default: false
         },
-        loading: {
-            type: Boolean,
-            default: false
-        },
-        currColumn: {
-            // 当前展示的字段，若列表不可配置则不需要传入
+        selectFields: {
+            //当前选中的的字段，若列表不可配置则不需要传入
             type: Array,
             default: function () {
                 return []
             }
         },
         selectLines: {
-            // 选中的行
+            //选中的行
             type: Array,
             default: function () {
                 return []
             }
         },
-        fieldShow: {
-            // 是否展示导出字段
-            type: Boolean,
-            default: true
-        },
         currSelectShow: {
-            // 是否展示 ---  导出当前选择
+            //是否展示 ---  导出当前选择
             type: Boolean,
             default: true
         },
         selectAllName: {
-            // "导出全部筛选"  ------文字提示
+            //"导出全部筛选"  ------文字提示
             type: String,
             default: '导出全部筛选'
         },
         currSelectName: {
-            // "导出当前选择"   ----文字提示
+            //"导出当前选择"   ----文字提示
             type: String,
             default: '导出当前选择'
         },
-        postMsg: {
-            type: Object,
-            default: function () {
-                return {}
-            }
-        },
         dialogWidth: {
             type: String,
-            default: '760px'
+            default: '755px'
         },
-        allFields: {
-            type: Array,
-            default: function () {
-                return []
-            }
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        fileName: {
+            type: String,
+            default: ''
         }
     },
     data() {
         return {
-            exportForm: {
+            form: {
                 name: '',
                 type: '1',
                 field: []
             },
-            useData: [],
             checkAll: true,
             isIndeterminate: true,
-            exportRule: {
+            rules: {
                 name: [
                     {
                         required: true,
@@ -123,7 +113,105 @@ export default {
                         trigger: 'blur'
                     }
                 ]
+            },
+            options: []
+        }
+    },
+    watch: {
+        visible(n) {
+            if (n) {
+                this.visibleTrue()
+            } else {
+                this.visibleFalse()
             }
+        }
+    },
+    methods: {
+        getRandom(len = 4) {
+            const data = len === '4' ? '0123456789qwertyuioplkjhgfdsazxcvbnm' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+            let retStr = ''
+            for (let i = 0; i < len; i++) {
+                const index = Math.floor(Math.random() * 35)
+                retStr += data.substr(index, 1)
+            }
+            return retStr
+        },
+        getCurrentDate() {
+            const date = new Date()
+            const year = date.getFullYear()
+            const month = (date.getMonth() + 1).toString().padStart(2, '0') // Months are 0-based in JavaScript
+            const day = date.getDate().toString().padStart(2, '0')
+            return `${year}${month}${day}`
+        },
+        closeHandle() {
+            this.visible = false
+        },
+        saveHandle() {
+            //确认导出
+            this.$refs['form'].validate(valid => {
+                if (valid) {
+                    const sortFields = this.options.filter(v => this.form.field.includes(v.value)).map(v => v.value)
+
+                    this.$emit('submit', {
+                        name: this.form.name,
+                        type: this.form.type,
+                        field: sortFields
+                    })
+                    this.btnLoading = true
+                } else {
+                    console.log('error submit!!')
+                    return false
+                }
+            })
+        },
+        visibleTrue() {
+            //打开执行的方法
+            this.btnLoading = false
+            //设置文件名称
+            this.form.name = `${this.fileName}_${this.getCurrentDate()}_${this.getRandom()}`
+
+            //设置选中字段
+            if (this.selectFields.length) {
+                this.$nextTick(() => {
+                    this.form.field = this.options.filter(v => v.disabled || this.selectFields.includes(v.value)).map(v => v.value)
+                    if (this.selectFields.length == this.options.length) {
+                        this.isIndeterminate = false
+                    }
+                })
+            } else {
+                this.$nextTick(() => {
+                    this.form.field = this.options.map(v => v.value)
+                    this.isIndeterminate = false
+                })
+            }
+        },
+        visibleFalse() {
+            //关闭执行的方法
+            this.checkAll = true
+            this.isIndeterminate = true
+            this.btnLoading = false
+            setTimeout(() => {
+                this.$refs['form'].resetFields()
+            }, 500)
+        },
+        handleCheckAllChange(val) {
+            const disabledFields = this.options.filter(v => v.disabled).map(v => v.value)
+
+            this.form.field = val ? this.options.map(v => v.value) : disabledFields
+            if (!val) {
+                if (disabledFields.length === 0) {
+                    this.isIndeterminate = false
+                } else {
+                    this.isIndeterminate = true
+                }
+            } else {
+                this.isIndeterminate = false
+            }
+        },
+        handleCheckedChange(value) {
+            const checkedCount = value.length
+            this.checkAll = checkedCount === this.options.length
+            this.isIndeterminate = checkedCount > 0 && checkedCount < this.options.length
         }
     },
     computed: {
@@ -143,94 +231,6 @@ export default {
                 this.$emit('update:loading', val)
             }
         }
-    },
-    watch: {
-        visible(newVal) {
-            if (newVal) {
-                this.visibleTrue()
-            } else {
-                this.visibleFalse()
-            }
-        }
-    },
-    methods: {
-        getRandom(len) {
-            len = len || 4
-            const data = len === '4' ? '0123456789qwertyuioplkjhgfdsazxcvbnm' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-            let retStr = ''
-            for (let i = 0; i < len; i++) {
-                const index = Math.floor(Math.random() * 35)
-                retStr += data.substr(index, 1)
-            }
-            return retStr
-        },
-        closeHandle() {
-            // 关闭弹窗
-            this.visible = false
-        },
-        saveHandle() {
-            // 确认导出
-            this.$refs.exportForm.validate(valid => {
-                if (valid) {
-                    if (this.exportForm.field && this.exportForm.field.length) {
-                        this.exportForm.field = this.allFields.filter(v => this.exportForm.field.includes(v.prop)).map(v => v.prop)
-                    }
-                    this.$emit('callbackHandle', this.exportForm) // 执行回调
-                } else {
-                    return false
-                }
-            })
-        },
-        visibleTrue() {
-            // 打开执行的方法
-            this.exportForm.type = '1'
-
-            this.useData = this.postMsg
-
-            // 设置文件名称
-            this.exportForm.name = `${this.useData.Title}_${dayjs().format('YYYYMMDD')}_${this.getRandom()}`
-
-            // 设置选中字段
-            if (this.useData.isConf) {
-                if (this.currColumn.length === '0') {
-                    console.log('未传入当前展示字段：currColumn')
-                } else {
-                    this.exportForm.field = this.currColumn
-                    if (this.currColumn.length === this.allFields.length) {
-                        this.isIndeterminate = false
-                    }
-                }
-            } else {
-                this.exportForm.field = this.allFields.map(v => v.prop)
-                this.isIndeterminate = false
-            }
-        },
-        visibleFalse() {
-            // 关闭执行的方法
-            this.checkAll = true
-            this.isIndeterminate = true
-            setTimeout(() => {
-                this.$refs.exportForm.resetFields()
-            }, 500)
-        },
-        handleCheckAllChange(val) {
-            const curNoCheField = this.allFields.filter(v => v.disabled).map(v => v.prop)
-            this.exportForm.field = val ? this.allFields.map(v => v.prop) : curNoCheField
-            if (!val) {
-                if (curNoCheField.length === '0') {
-                    this.isIndeterminate = false
-                } else {
-                    this.isIndeterminate = true
-                }
-            } else {
-                this.isIndeterminate = false
-            }
-        },
-        handleCheckedCitiesChange(value) {
-            const checkedCount = value.length
-            this.checkAll = checkedCount === this.allFields.length
-            this.isIndeterminate = checkedCount > 0 && checkedCount < this.allFields.length
-        }
     }
 }
 </script>
@@ -239,46 +239,66 @@ export default {
 .input-w-287 {
     width: 287px;
 }
-
+.mi-export >>> .el-checkbox {
+    width: 120px;
+    margin-right: 14px !important;
+    overflow: ellipsis;
+}
 .field-list {
     background: #f7f7f7;
     border-radius: 2px;
 }
-.field-list .el-checkbox:nth-child(1) {
-    margin-left: 30px;
-}
-.field-list .el-checkbox:nth-child(4n) {
+.field-list >>> .el-checkbox {
     margin-left: 16px;
+}
+.field-list >>> .el-checkbox .el-checkbox__label {
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: text-top;
 }
 .f-l {
     float: left;
-    margin-left: 16px;
 }
-
-.form-footer {
-    padding-top: 11px;
-    padding-bottom: 12px;
-    border-top: 1px solid #f2f2f2;
-    margin-top: 6px;
-}
-.export-dialog >>> .el-dialog__body {
-    padding: 0 !important;
-}
-
-.export-dialog .el-checkbox {
-    width: 120px;
-}
-.export-dialog >>> .el-form-item__label {
+.mi-export >>> .el-form-item__label {
     padding: 0 20px 0 0 !important;
     font-family: NotoSansHans-Regular;
     font-size: 14px;
     color: #91a1a9;
     letter-spacing: 0;
 }
-.export-dialog >>> .el-form-item {
+.mi-export >>> .el-dialog__title {
+    font-family: NotoSansHans-Regular;
+    font-size: 16px;
+    color: #333333;
+    letter-spacing: 0;
+}
+.mi-export >>> .el-form-item {
     margin-bottom: 9px;
 }
-.export-dialog >>> .el-radio + .el-radio {
+.mi-export >>> .el-radio + .el-radio {
     margin-left: 64px;
+}
+.input-34 >>> .el-input__inner {
+    height: 34px;
+    line-height: 34px;
+}
+.mar-l-20 {
+    margin-left: 20px;
+}
+.form-footer {
+    padding-top: 11px;
+    padding-bottom: 12px;
+    border-top: 1px solid #f2f2f2;
+    margin-top: 6px;
+}
+.flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+.field-box {
+    max-height: 400px;
+    overflow-y: auto;
 }
 </style>

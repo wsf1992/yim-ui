@@ -1,5 +1,5 @@
 <template>
-    <div class="flex base-select-input" :style="{ width: `${width}px` }">
+    <div class="flex mi-select-input" :style="{ width: `${width}px` }">
         <mi-select v-if="hasSelect" v-model="sValue" :width="`${selectWidth}px`" :data="selectList" @change="selectChange"></mi-select>
 
         <el-input
@@ -124,13 +124,16 @@ export default {
 .flex-auto {
     flex: 1 1 auto;
 }
+.mi-select-input {
+    height: 34px;
+}
 /* 调整 placeholder 文字被遮住 */
-.base-select-input >>> .el-input__inner {
+.mi-select-input >>> .el-input__inner {
     padding-right: 20px;
     padding-left: 10px;
 }
 /* 调整清除图标被遮住 */
-.base-select-input >>> .el-input__suffix {
+.mi-select-input >>> .el-input__suffix {
     right: 0;
 }
 .self-input >>> .el-input__inner {

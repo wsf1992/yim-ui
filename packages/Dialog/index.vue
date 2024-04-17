@@ -1,14 +1,5 @@
 <template>
-    <el-dialog
-        :close-on-click-modal="false"
-        :title="title"
-        :width="width"
-        class="dialog-border ym-dialog"
-        :before-close="closeHandle"
-        :visible.sync="visible"
-        append-to-body
-        top="8vh"
-    >
+    <el-dialog :close-on-click-modal="false" :title="title" :width="width" class="dialog-border ym-dialog" :before-close="closeHandle" :visible.sync="visible" append-to-body top="8vh">
         <slot></slot>
     </el-dialog>
 </template>
@@ -56,6 +47,9 @@ export default {
 .ym-dialog >>> .el-dialog {
     border-radius: 6px;
     box-shadow: 2px 4px 20px 1px rgba(167, 167, 167, 0.35);
+}
+.ym-dialog >>> .el-dialog__body {
+    padding: 0 !important;
 }
 .ym-dialog >>> .el-dialog__title {
     font-family: NotoSansHans-Regular;

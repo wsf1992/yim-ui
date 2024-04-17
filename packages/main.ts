@@ -18,6 +18,8 @@ import MiContent from './Content/index.vue'
 import MiUoload from './Upload/index.vue'
 import MiPagination from './Pagination/index.vue'
 import MiSelectInput from './SelectInput/index.vue'
+import MiExport from './Export/index.vue'
+import MiExOption from './Export/option.vue'
 export default {
     install: function (Vue) {
         Vue.component(MiButton.name, MiButton)
@@ -37,7 +39,9 @@ export default {
         Vue.component(MiUoload.name, MiUoload)
         Vue.component(MiPagination.name, MiPagination)
         Vue.component(MiSelectInput.name, MiSelectInput)
+        Vue.component(MiExport.name, MiExport)
+        Vue.component(MiExOption.name, MiExOption)
     }
 }
 
-export { MiButton, MiSelect, MiPopover, MiDialog, MiCard, MiListDisplay, MiListOption, MiListTitle, MiLink, MiTitlePage, MiBox, MiTabs, MiTitle, MiContent, MiUoload, MiPagination, MiSelectInput }
+export { MiButton, MiSelect, MiPopover, MiDialog, MiCard, MiListDisplay, MiListOption, MiListTitle, MiLink, MiTitlePage, MiBox, MiTabs, MiTitle, MiContent, MiUoload, MiPagination, MiSelectInput, MiExport, MiExOption }
