@@ -12,6 +12,7 @@
             </el-menu-item-group>
             <el-menu-item-group title="Form">
                 <el-menu-item index="/select">select</el-menu-item>
+                <el-menu-item index="/selectinput">SelectInput</el-menu-item>
                 <el-menu-item index="/title">title</el-menu-item>
                 <el-menu-item index="/content">content</el-menu-item>
             </el-menu-item-group>
