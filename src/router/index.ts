@@ -15,7 +15,7 @@ const Upload = () => import('@/views/Upload/index.vue')
 const Pagination = () => import('@/views/Pagination/index.vue')
 const TitlePage = () => import('@/views/Page/Title/index.vue')
 const Throttled = () => import('@/views/Methods/Throttled/index.vue')
-const SelectInput = () => import('@/views/selectInput/index.vue')
+const SelectInput = () => import('@/views/SelectInput/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
