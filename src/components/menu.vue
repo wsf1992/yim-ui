@@ -47,6 +47,14 @@
                 <el-menu-item index="/throttled">throttled</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
+        <el-submenu index="3">
+            <template slot="title">
+                <span>公共样式</span>
+            </template>
+            <el-menu-item-group title="element组件相关">
+                <el-menu-item index="/cascader">cascader</el-menu-item>
+            </el-menu-item-group>
+        </el-submenu>
         <el-menu-item index="/test">
             <span slot="title">测试</span>
         </el-menu-item>

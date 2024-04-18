@@ -1,5 +1,5 @@
 <template>
-    <mi-dialog title="导出配置" :width="dialogWidth" :before-close="closeHandle" v-model="visible">
+    <mi-dialog :title="title" :width="dialogWidth" :before-close="closeHandle" v-model="visible">
         <el-form label-position="right" ref="form" :rules="rules" :model="form" @submit.native.prevent class="mi-export" style="padding: 30px 26px 21px 0px">
             <el-form-item label="文件名称" label-width="104px" prop="name">
                 <el-input class="input-34 input-w-287" v-model.trim="form.name" maxlength="50"></el-input>
@@ -80,6 +80,10 @@ export default {
         fileName: {
             type: String,
             default: ''
+        },
+        title: {
+            type: String,
+            default: '导出配置'
         }
     },
     data() {

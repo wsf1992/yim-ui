@@ -1,0 +1,26 @@
+// 用于自定义 element-ui 样式
+
+// cascader
+.mi-cascader {
+    line-height: 34px !important;
+    height: 34px !important;
+}
+.mi-cascader .el-cascader__label {
+    border: 1px solid #ddd;
+    color: #909399 !important;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.mi-cascader .el-input__suffix {
+    right: 0 !important;
+    border-left: 1px solid #ddd;
+}
+.mi-cascader .el-input__inner {
+    height: 34px;
+    line-height: 34px;
+    background-color: #f5f7fa;
+}
+.mi-cascader .el-input__icon {
+    line-height: 34px;
+    width: 26px;
+}

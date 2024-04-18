@@ -1,6 +1,6 @@
 // 全局引入 element css 文件，组件在使用时引入
 import 'element-ui/lib/theme-chalk/index.css';
-
+import '../style/index.scss'
 import MiButton from './Button/index.vue'
 import MiSelect from './Select/index.vue'
 import MiPopover from './Popover/index.vue'

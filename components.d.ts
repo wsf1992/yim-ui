@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-ui/lib/button')['default']
+    ElCascader: typeof import('element-ui/lib/cascader')['default']
     ElCheckbox: typeof import('element-ui/lib/checkbox')['default']
     ElCheckboxGroup: typeof import('element-ui/lib/checkbox-group')['default']
     ElDialog: typeof import('element-ui/lib/dialog')['default']
