@@ -10,7 +10,7 @@
             </div>
         </ul>
         <template slot="reference">
-            <div :class="['flex', 'flex-cross-center', 'select-box', { 'is-focus': visible }]" :style="{ width: width }">
+            <div :class="['flex', 'flex-cross-center', 'select-box', { 'is-focus': visible, 'bg-white': whiteTheme }]" :style="{ width: width }">
                 <div class="flex-auto display-label fz-13">
                     {{ label }}
                 </div>
@@ -47,6 +47,10 @@ export default {
         popperClass: {
             type: String,
             default: ''
+        },
+        whiteTheme: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -124,6 +128,9 @@ export default {
     background-color: #f5f7fa;
     box-sizing: border-box;
     border-radius: 2px;
+}
+.bg-white {
+    background-color: #fff !important;
 }
 .select-box.is-focus {
     /* border-color: #409eff; */
