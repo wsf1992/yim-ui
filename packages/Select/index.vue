@@ -51,6 +51,10 @@ export default {
         whiteTheme: {
             type: Boolean,
             default: false
+        },
+        defaultValue: {
+            type: String,
+            default: ''
         }
     },
     data() {
@@ -64,7 +68,7 @@ export default {
     computed: {
         _value: {
             get: function () {
-                return this.value || ''
+                return this.value || this.defaultValue || ''
             },
             set: function (val) {
                 this.$emit('input', val)

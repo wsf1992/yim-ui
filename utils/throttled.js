@@ -1,12 +1,13 @@
-export default function (delay = 1000) {
-    const map = new Map()
-    return async function (uniqueFn, fn, failFn) {
-        const id = uniqueFn()
-        if (!map.has(id)) {
-            await fn()
-            map.set(id, true)
+export default function throttled(delay = 1000) {
+    const set = new Set()
+    return async function (uniqueId, fn, failFn) {
+        if (!set.has(uniqueId)) {
+            set.add(uniqueId)
+            try {
+                await fn()
+            } catch (error) { }
             setTimeout(() => {
-                map.delete(id)
+                set.delete(uniqueId)
             }, delay)
         } else {
             failFn && failFn()

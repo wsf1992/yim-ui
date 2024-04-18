@@ -5,6 +5,7 @@
 ## 样式
 
 ![Alt text](./image.png)
+![alt text](./image-1.png)
 
 ## Attributes
 
@@ -15,6 +16,9 @@
 | placeholder   | 输入框占位文本 | String        | false   | ""     |
 | width         | 组件宽度       | String        | false   | 132px  |
 | data          | 下拉框列表数据 | Array         | true    | []     |
+| whiteTheme       | 是否展示白色主题     | Boolean       | false   | false  |
+| popperClass   | 为 popper 添加类名 | String        | false   | ""     |
+| defaultValue   | 占位符，当value 为空时展示 | String        | false   | ""     |
 
 ## Events
 
