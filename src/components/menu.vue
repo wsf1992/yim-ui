@@ -53,6 +53,7 @@
             </template>
             <el-menu-item-group title="element组件相关">
                 <el-menu-item index="/cascader">cascader</el-menu-item>
+                <el-menu-item index="/table">table</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="/test">

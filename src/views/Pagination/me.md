@@ -14,6 +14,7 @@
 | ------------- | -------------- | ------------- | ------- | ------ |
 | total | 总条目数   | Number | true    | 0  |
 | current-page | 当前页数，需要使用 .sync 修饰符 | Number  | true   | 1  |
+| page-size | 每页显示个数选择器的选项设置 | Number  | true   | 10  |
 
 ## Events
 
@@ -37,6 +38,7 @@
     <mi-pagination 
         :total="total" 
         :current-page.sync="currentPage" 
+        :page-size.sync="pageSize"
         @prevClick="prevClick" 
         @nextClick="nextClick" 
         @sizeChange="sizeChange" 
@@ -48,7 +50,8 @@ export default {
     data() {
         return {
             total: 100,
-            currentPage: 1
+            currentPage: 1,
+            pageSize: 10
         }
     },
     methods: {

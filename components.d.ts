@@ -25,6 +25,8 @@ declare module 'vue' {
     ElRadio: typeof import('element-ui/lib/radio')['default']
     ElSelect: typeof import('element-ui/lib/select')['default']
     ElSubmenu: typeof import('element-ui/lib/submenu')['default']
+    ElTable: typeof import('element-ui/lib/table')['default']
+    ElTableColumn: typeof import('element-ui/lib/table-column')['default']
     ElTabPane: typeof import('element-ui/lib/tab-pane')['default']
     ElTabs: typeof import('element-ui/lib/tabs')['default']
     ElUpload: typeof import('element-ui/lib/upload')['default']

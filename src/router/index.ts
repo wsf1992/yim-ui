@@ -17,6 +17,7 @@ const TitlePage = () => import('@/views/Page/Title/index.vue')
 const Throttled = () => import('@/views/Methods/Throttled/index.vue')
 const SelectInput = () => import('@/views/SelectInput/index.vue')
 const Cascader = () => import('@/views/Cascader/index.vue')
+const Table = () => import('@/views/Table/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
@@ -34,7 +35,8 @@ const routes = [
     { path: '/titlepage', component: TitlePage },
     { path: '/throttled', component: Throttled },
     { path: '/selectinput', component: SelectInput },
-    { path: '/cascader', component: Cascader }
+    { path: '/cascader', component: Cascader },
+    { path: '/table', component: Table }
 ]
 
 export default new VueRouter({ routes })
