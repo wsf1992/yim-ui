@@ -13,7 +13,7 @@
             @next-click="$emit('nextClick', $event)"
             :current-page="currentPage"
         >
-            <el-select size="small" v-model="size" class="mi-pagination-size" @change="$emit('sizeChange', $event)">
+            <el-select size="small" v-model="size" class="mi-pagination-size" @change="sizeChange">
                 <el-option label="10条/页" :value="10"> </el-option>
                 <el-option label="20条/页" :value="20"> </el-option>
                 <el-option label="50条/页" :value="50"> </el-option>
@@ -34,17 +34,29 @@ export default {
         currentPage: {
             type: Number,
             default: 1
+        },
+        PageSize: {
+            type: Number,
+            default: 10
         }
     },
-    data() {
-        return {
-            size: 10
+    computed: {
+        size: {
+            get() {
+                return this.PageSize
+            },
+            set(val) {
+                this.$emit('update:PageSize', val)
+            }
         }
     },
     methods: {
         currentHandle(val) {
             this.$emit('update:currentPage', val)
             this.$emit('currentChange', val)
+        },
+        sizeChange(val) {
+            this.$emit('sizeChange', val)
         }
     }
 }
