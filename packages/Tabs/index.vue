@@ -6,6 +6,7 @@
         <div>
             <slot name="right"></slot>
         </div>
+        <div class="mi-fgx"></div>
     </div>
 </template>
 <script>
@@ -44,9 +45,17 @@ export default {
 
 <style scoped>
 .mi-tabs-box {
-    border-bottom: 2px solid #edeef0;
     display: flex;
     justify-content: space-between;
+    position: relative;
+}
+.mi-fgx {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #edeef0;
 }
 .mi-tabs {
     flex: 1 1 auto;
