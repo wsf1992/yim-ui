@@ -8,6 +8,7 @@
             background
             layout="total, slot, prev, pager, next"
             :total="total"
+            :page-size="size"
             @current-change="currentHandle"
             @prev-click="$emit('prevClick', $event)"
             @next-click="$emit('nextClick', $event)"
