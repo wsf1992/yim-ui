@@ -12,6 +12,7 @@ declare module 'vue' {
     ElCheckbox: typeof import('element-ui/lib/checkbox')['default']
     ElCheckboxGroup: typeof import('element-ui/lib/checkbox-group')['default']
     ElDialog: typeof import('element-ui/lib/dialog')['default']
+    ElDrawer: typeof import('element-ui/lib/drawer')['default']
     ElForm: typeof import('element-ui/lib/form')['default']
     ElFormItem: typeof import('element-ui/lib/form-item')['default']
     ElInput: typeof import('element-ui/lib/input')['default']
