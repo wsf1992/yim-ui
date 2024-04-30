@@ -19,6 +19,7 @@
             <el-menu-item-group title="others">
                 <el-menu-item index="/dialog">Dialog</el-menu-item>
                 <el-menu-item index="/drawer">Drawer</el-menu-item>
+                <el-menu-item index="/tablebox">TableBox</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="page">
                 <el-menu-item index="/pagination">Pagination</el-menu-item>

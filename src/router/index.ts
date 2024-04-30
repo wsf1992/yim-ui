@@ -18,6 +18,8 @@ const Throttled = () => import('@/views/Methods/Throttled/index.vue')
 const SelectInput = () => import('@/views/SelectInput/index.vue')
 const Cascader = () => import('@/views/Cascader/index.vue')
 const Table = () => import('@/views/Table/index.vue')
+const Drawer = () => import('@/views/Drawer/index.vue')
+const TableBox = () => import('@/views/TableBox/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
@@ -36,7 +38,9 @@ const routes = [
     { path: '/throttled', component: Throttled },
     { path: '/selectinput', component: SelectInput },
     { path: '/cascader', component: Cascader },
-    { path: '/table', component: Table }
+    { path: '/table', component: Table },
+    { path: '/drawer', component: Drawer },
+    { path: '/tablebox', component: TableBox }
 ]
 
 export default new VueRouter({ routes })
