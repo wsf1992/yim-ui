@@ -10,7 +10,7 @@
                 <el-radio v-show="currSelectShow" v-model="form.type" label="2" :disabled="selectLines.length == '0' ? true : false">{{ currSelectName }}</el-radio>
             </el-form-item>
 
-            <el-form-item label="导出字段" label-width="104px" prop="field" v-show="options.length">
+            <el-form-item label="导出字段" label-width="104px" prop="field" v-if="options.length">
                 <div class="field-box">
                     <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange" class="f-l" style="margin-left: 16px; margin-right: 14px">全选</el-checkbox>
                     <el-checkbox-group v-model="form.field" @change="handleCheckedChange" class="field-list">
