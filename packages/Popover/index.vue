@@ -1,5 +1,5 @@
 <template>
-    <el-popover :placement="placement" :width="width" trigger="manual" v-model="visible" ref="ymPopover" popper-class="ym-popover">
+    <el-popover :placement="placement" :width="width" trigger="manual" v-model="visible" ref="miPopover" popper-class="mi-popover">
         <slot></slot>
         <template v-slot:reference>
             <slot name="reference"></slot>
@@ -8,7 +8,7 @@
 </template>
 
 <style scoped>
-.ym-popover {
+.mi-popover {
     background: #ffffff;
     box-shadow: 2px 4px 20px 1px rgba(167, 167, 167, 0.35);
     border-radius: 6px;
@@ -52,7 +52,7 @@ export default {
     methods: {
         handleValueChange(val) {
             if (val) {
-                const pop = this.$refs.ymPopover
+                const pop = this.$refs.miPopover
                 pop.referenceElm = window.event.target
                 pop.createPopper()
                 pop.doShow()
@@ -63,7 +63,7 @@ export default {
         doClose(event) {
             try {
                 const target = event.target
-                const popover = this.$refs.ymPopover.popperElm
+                const popover = this.$refs.miPopover.popperElm
                 if (!popover.contains(target)) {
                     this.visible = false
                 }
