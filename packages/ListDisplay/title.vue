@@ -13,12 +13,12 @@ export default {
 </script>
 <style scoped>
 .list-display-title {
-    margin: 15px 0 15px 20px;
+    margin: 15px 0 15px;
     background: #f5f5f5;
     height: 28px;
     line-height: 28px;
     font-size: 14px;
     color: #606266;
-    text-indent: 25px;
+    text-align: center;
 }
 </style>
