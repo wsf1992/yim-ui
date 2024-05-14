@@ -18,6 +18,7 @@
 | currSelectShow          | 是否展示 【导出当前选择】 | Boolean         | false    | true     |
 | selectAllName          | 【导出全部筛选】重命名 | String         | false    | 导出全部筛选     |
 | currSelectName          |【导出当前选择】重命名 | String         | false    | 导出当前选择     |
+| fieldShow          | 是否展示 【导出字段】 | Boolean         | false    | true     |
 | loading          | 按钮loading状态控制 | Boolean         | false    | false     |
 
 ## MiExport Events
