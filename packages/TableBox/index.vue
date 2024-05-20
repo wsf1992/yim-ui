@@ -1,6 +1,6 @@
 <template>
-    <div class="box">
-        <div class="second-box">
+    <div class="table-box">
+        <div class="table-second-box">
             <slot></slot>
         </div>
     </div>
@@ -14,10 +14,10 @@ export default {
 </script>
 
 <style scoped>
-.box {
+.table-box {
     position: relative;
 }
-.second-box {
+.table-second-box {
     position: absolute;
     top: 0;
     bottom: 0;
