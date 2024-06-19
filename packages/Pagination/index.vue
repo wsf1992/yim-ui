@@ -6,7 +6,7 @@
         <el-pagination
             class="mi-pagination"
             background
-            layout="total, slot, prev, pager, next"
+            :layout="`total, slot, prev, pager, next${jumper && ', jumper'}`"
             :total="total"
             :page-size="size"
             @current-change="currentHandle"
@@ -39,7 +39,8 @@ export default {
         PageSize: {
             type: Number,
             default: 10
-        }
+        },
+        jumper: Boolean
     },
     computed: {
         size: {
@@ -94,5 +95,22 @@ export default {
     font-size: 14px;
     line-height: 32px;
     padding-left: 10px;
+}
+
+.mi-pagination >>> .el-pagination__jump {
+    margin-left: 11px;
+    height: 32px;
+    line-height: 32px;
+    color: #91a1a9;
+}
+.mi-pagination >>> .el-pagination__editor {
+    width: 70px;
+}
+.mi-pagination >>> .el-pagination__editor .el-input__inner {
+    height: 34px;
+    line-height: 34px;
+    border-radius: 2px;
+    background: #fafafa;
+    border: 1px solid rgba(163, 170, 182, 0.4);
 }
 </style>
