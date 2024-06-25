@@ -6,7 +6,7 @@
         <el-pagination
             class="mi-pagination"
             background
-            :layout="`total, slot, prev, pager, next${jumper && ', jumper'}`"
+            :layout="`total, slot, prev, pager, next${jumper ? ', jumper' : ''}`"
             :total="total"
             :page-size="size"
             @current-change="currentHandle"

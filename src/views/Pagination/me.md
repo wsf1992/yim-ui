@@ -15,7 +15,7 @@
 | total | 总条目数   | Number | true    | 0  |
 | current-page | 当前页数，需要使用 .sync 修饰符 | Number  | true   | 1  |
 | page-size | 每页显示个数选择器的选项设置 | Number  | true   | 10  |
-
+| jumper | 是否展示跳页元素 | Boolean  | false   | false  |
 ## Events
 
 | 参数   | 说明                 | 回调参数     |
@@ -42,7 +42,9 @@
         @prevClick="prevClick" 
         @nextClick="nextClick" 
         @sizeChange="sizeChange" 
-        @currentChange="currentChange">solt:left</mi-pagination>
+        @currentChange="currentChange"
+        jumper
+        >solt:left</mi-pagination>
 </template>
 
 <script>
