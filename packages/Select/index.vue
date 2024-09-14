@@ -1,8 +1,8 @@
 <template>
-    <el-popover v-model="visible" placement="bottom-start" width="200" trigger="click" :popper-class="`padd-0 ${popperClass}`" @after-leave="popLeave">
+    <el-popover v-model="visible" placement="bottom-start" width="200" trigger="click" :popper-class="`padd-0 ${popperClass}`" @after-leave="popLeave" :appendToBody="false">
         <ul class="p-t-10 p-b-10">
             <el-input v-if="isQuery" v-model="query" :placeholder="placeholder" class="search-input" clearable size="small"></el-input>
-            <div v-infinite-scroll="load_l_d" class="drop-ul" infinite-scroll-distance="10">
+            <div id="popoverContent" ref="popoverContent" v-infinite-scroll="load_l_d" class="drop-ul" infinite-scroll-distance="10">
                 <li v-for="item in l_d_s" :key="item.value" class="flex flex-cross-center" :class="{ active: item.value === _value }" @click="handleOptionClick(item)">
                     <span class="flex-auto li-label" :title="item.label">{{ item.label }}</span>
                     <i v-if="item.value === _value" class="el-icon-check mar-l-10"></i>
@@ -62,7 +62,8 @@ export default {
             query: '',
             visible: false,
             l_d_s: [],
-            step: 10
+            step: 10,
+            setTop0: false
         }
     },
     computed: {
@@ -99,6 +100,16 @@ export default {
                 this.load_l_d()
             },
             immediate: true
+        },
+        query() {
+            this.scrollTop()
+        },
+        visible(n) {
+            if(n) {
+                if(this.setTop0) {
+                    this.scrollTop()
+                }
+            }
         }
     },
     methods: {
@@ -107,6 +118,12 @@ export default {
             this.visible = false
         },
         popLeave() {
+            // 清空搜索， scrollTop = 0 失败，实际是 40
+            if(this.query) {
+                this.setTop0 = true
+            } else {
+                this.setTop0 = false
+            }
             this.query = ''
         },
         load_l_d() {
@@ -114,6 +131,14 @@ export default {
             const end = Math.min(start + this.step, this.l_d.length)
             ;[...this.l_d].slice(start, end).forEach(e => {
                 this.l_d_s.push(e)
+            })
+        },
+        scrollTop() {
+            this.$nextTick(() => {
+                const popoverContent = this.$refs.popoverContent
+                if (popoverContent) {
+                    popoverContent.scrollTop = 0
+                }
             })
         }
     }
