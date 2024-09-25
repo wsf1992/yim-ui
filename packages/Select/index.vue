@@ -1,23 +1,33 @@
 <template>
-    <el-popover v-model="visible" placement="bottom-start" width="200" trigger="click" :popper-class="`padd-0 ${popperClass}`" @after-leave="popLeave" :appendToBody="false">
-        <ul class="p-t-10 p-b-10">
-            <el-input v-if="isQuery" v-model="query" :placeholder="placeholder" class="search-input" clearable size="small"></el-input>
-            <div id="popoverContent" ref="popoverContent" v-infinite-scroll="load_l_d" class="drop-ul" infinite-scroll-distance="10">
-                <li v-for="item in l_d_s" :key="item.value" class="flex flex-cross-center" :class="{ active: item.value === _value }" @click="handleOptionClick(item)">
-                    <span class="flex-auto li-label" :title="item.label">{{ item.label }}</span>
-                    <i v-if="item.value === _value" class="el-icon-check mar-l-10"></i>
-                </li>
-            </div>
-        </ul>
-        <template slot="reference">
-            <div :class="['flex', 'flex-cross-center', 'select-box', { 'is-focus': visible, 'bg-white': whiteTheme }]" :style="{ width: width }">
-                <div class="flex-auto display-label fz-13">
-                    {{ label }}
+    <div class="relative">
+        <el-popover
+            v-model="visible"
+            placement="bottom-start"
+            width="200"
+            trigger="click"
+            :popper-class="`padd-0 ${popperClass}`"
+            @after-leave="popLeave"
+            :appendToBody="false"
+        >
+            <ul class="p-t-10 p-b-10">
+                <el-input v-if="isQuery" v-model="query" :placeholder="placeholder" class="search-input" clearable size="small"></el-input>
+                <div id="popoverContent" ref="popoverContent" v-infinite-scroll="load_l_d" class="drop-ul" infinite-scroll-distance="10">
+                    <li v-for="item in l_d_s" :key="item.value" class="flex flex-cross-center" :class="{ active: item.value === _value }" @click="handleOptionClick(item)">
+                        <span class="flex-auto li-label" :title="item.label">{{ item.label }}</span>
+                        <i v-if="item.value === _value" class="el-icon-check mar-l-10"></i>
+                    </li>
                 </div>
-                <i class="el-icon-arrow-down caret" :class="{ trans: visible }"></i>
-            </div>
-        </template>
-    </el-popover>
+            </ul>
+            <template slot="reference">
+                <div :class="['flex', 'flex-cross-center', 'select-box', { 'is-focus': visible, 'bg-white': whiteTheme }]" :style="{ width: width }">
+                    <div class="flex-auto display-label fz-13">
+                        {{ label }}
+                    </div>
+                    <i class="el-icon-arrow-down caret" :class="{ trans: visible }"></i>
+                </div>
+            </template>
+        </el-popover>
+    </div>
 </template>
 
 <script>
@@ -105,8 +115,8 @@ export default {
             this.scrollTop()
         },
         visible(n) {
-            if(n) {
-                if(this.setTop0) {
+            if (n) {
+                if (this.setTop0) {
                     this.scrollTop()
                 }
             }
@@ -119,7 +129,7 @@ export default {
         },
         popLeave() {
             // 清空搜索， scrollTop = 0 失败，实际是 40
-            if(this.query) {
+            if (this.query) {
                 this.setTop0 = true
             } else {
                 this.setTop0 = false
@@ -236,5 +246,8 @@ li.active {
 }
 .flex-auto {
     flex: 1 1 auto;
+}
+.relative {
+    position: relative;
 }
 </style>
