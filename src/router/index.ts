@@ -20,6 +20,7 @@ const Cascader = () => import('@/views/Cascader/index.vue')
 const Table = () => import('@/views/Table/index.vue')
 const Drawer = () => import('@/views/Drawer/index.vue')
 const TableBox = () => import('@/views/TableBox/index.vue')
+const Audio = () => import('@/views/Audio/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
@@ -40,7 +41,8 @@ const routes = [
     { path: '/cascader', component: Cascader },
     { path: '/table', component: Table },
     { path: '/drawer', component: Drawer },
-    { path: '/tablebox', component: TableBox }
+    { path: '/tablebox', component: TableBox },
+    { path: '/audio', component: Audio },
 ]
 
 export default new VueRouter({ routes })

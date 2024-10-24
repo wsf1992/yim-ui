@@ -1,32 +1,13 @@
 <template>
-    <div>
-        <mi-select v-model="sId" :data="list" isQuery placeholder="占位文本"></mi-select>
+    <div style="position: absolute;bottom: 10px">
+        <mi-audio url="https://env2cmb.emicloud.com:8443/download?ticket=7273eac2b9e45b7d4ee5d56cf6ac2365"></mi-audio>
     </div>
 </template>
 <script>
 export default {
     data() {
-        return {
-            sId: '',
-            list: [
-                {
-                    label: '未选择',
-                    value: ''
-                },
-                {
-                    label: '选项11111111111111111111111111111111111111111111111111111111111111111111',
-                    value: '1'
-                },
-                {
-                    label: '选项2',
-                    value: '2'
-                },
-                {
-                    label: '选项3',
-                    value: '3'
-                }
-            ]
-        }
-    }
+        return {}
+    },
+    methods: {}
 }
 </script>

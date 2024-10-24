@@ -8,7 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-ui/lib/button')['default']
-    ElCascader: typeof import('element-ui/lib/cascader')['default']
     ElCheckbox: typeof import('element-ui/lib/checkbox')['default']
     ElCheckboxGroup: typeof import('element-ui/lib/checkbox-group')['default']
     ElDialog: typeof import('element-ui/lib/dialog')['default']
@@ -25,9 +24,8 @@ declare module 'vue' {
     ElPopover: typeof import('element-ui/lib/popover')['default']
     ElRadio: typeof import('element-ui/lib/radio')['default']
     ElSelect: typeof import('element-ui/lib/select')['default']
+    ElSlider: typeof import('element-ui/lib/slider')['default']
     ElSubmenu: typeof import('element-ui/lib/submenu')['default']
-    ElTable: typeof import('element-ui/lib/table')['default']
-    ElTableColumn: typeof import('element-ui/lib/table-column')['default']
     ElTabPane: typeof import('element-ui/lib/tab-pane')['default']
     ElTabs: typeof import('element-ui/lib/tabs')['default']
     ElUpload: typeof import('element-ui/lib/upload')['default']

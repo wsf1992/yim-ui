@@ -22,6 +22,7 @@ import MiExport from './Export/index.vue'
 import MiExOption from './Export/option.vue'
 import MiDrawer from './Drawer/index.vue'
 import MiTableBox from './TableBox/index.vue'
+import MiAudio from './Audio/index.vue'
 export default {
     install: function (Vue) {
         Vue.component(MiButton.name, MiButton)
@@ -45,7 +46,8 @@ export default {
         Vue.component(MiExOption.name, MiExOption)
         Vue.component(MiDrawer.name, MiDrawer)
         Vue.component(MiTableBox.name, MiTableBox)
+        Vue.component(MiAudio.name, MiAudio)
     }
 }
 
-export { MiButton, MiSelect, MiPopover, MiDialog, MiCard, MiListDisplay, MiListOption, MiListTitle, MiLink, MiTitlePage, MiBox, MiTabs, MiTitle, MiContent, MiUoload, MiPagination, MiSelectInput, MiExport, MiExOption, MiDrawer, MiTableBox }
+export { MiButton, MiSelect, MiPopover, MiDialog, MiCard, MiListDisplay, MiListOption, MiListTitle, MiLink, MiTitlePage, MiBox, MiTabs, MiTitle, MiContent, MiUoload, MiPagination, MiSelectInput, MiExport, MiExOption, MiDrawer, MiTableBox, MiAudio }
