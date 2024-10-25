@@ -48,7 +48,8 @@ export default {
                 { label: '客户声道', value: 'right' }
             ]
         },
-        isDual: Boolean
+        isDual: Boolean,
+        close: Boolean
     },
     data() {
         return {
@@ -62,6 +63,14 @@ export default {
         src: {
             handler() {
                 this.init()
+            },
+            immediate: true
+        },
+        close: {
+            handler(val) {
+                if (val) {
+                    this.audioElement.pause()
+                }
             },
             immediate: true
         }
@@ -111,6 +120,7 @@ export default {
         })
     },
     beforeDestroy() {
+        this.audioElement.pause()
         this.audioElement.removeEventListener('loadstart')
         this.audioElement.removeEventListener('canplay')
         this.audioElement.removeEventListener('play')

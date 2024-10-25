@@ -47,6 +47,8 @@ export default {
     },
     mounted() {
         this.audioElement.addEventListener('canplay', () => {
+            this.miValue = 0
+            this.currentTime = 0
             this.duration = this.audioElement.duration
         })
         this.audioElement.addEventListener('timeupdate', () => {
