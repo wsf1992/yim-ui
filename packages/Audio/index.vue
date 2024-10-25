@@ -1,7 +1,7 @@
 <template>
     <div class="mi-audio-box flex-cross-center">
         <div class="opear-btn" :class="[paused ? 'play' : 'pause']" @click="playOrPause"></div>
-        <track-slider class="m-l-10" :isCanplay="isCanplay"></track-slider>
+        <track-slider class="m-l-10" :isCanplay="isCanplay" ref="trackslider"></track-slider>
         <speed class="m-l-12"></speed>
         <tract class="m-l-12" v-if="isDual" :tractData="tractData"></tract>
         <volume class="m-l-12"></volume>
@@ -78,7 +78,9 @@ export default {
     methods: {
         init() {
             if (!this.src) return
+            this.isCanplay = false
             this.audioElement.src = this.src
+            this.$refs.trackslider.initValue()
             this.audioElement.crossOrigin = 'anonymous'
             this.audioElement.load()
         },
@@ -100,10 +102,6 @@ export default {
         this.audioElement.loop = this.loop
         this.audioElement.autoplay = this.autoplay
         this.refAudioElement()
-        this.audioElement.addEventListener('loadstart ', () => {
-            this.isCanplay = false
-            this.paused = true
-        })
         this.audioElement.addEventListener('canplay', () => {
             this.isCanplay = true
         })

@@ -43,12 +43,15 @@ export default {
                 this.lastValue = val
             }
             
+        },
+        initValue() {
+            this.miValue = 0
+            this.duration = 0
+            this.currentTime = 0
         }
     },
     mounted() {
         this.audioElement.addEventListener('canplay', () => {
-            this.miValue = 0
-            this.currentTime = 0
             this.duration = this.audioElement.duration
         })
         this.audioElement.addEventListener('timeupdate', () => {
@@ -56,14 +59,7 @@ export default {
             this.miValue = (this.audioElement.currentTime / this.audioElement.duration) * 100
         })
         this.audioElement.addEventListener('error', () => {
-            this.miValue = 0
-            this.duration = 0 
-            this.currentTime = 0
-        })
-        this.audioElement.addEventListener('loadstart ', () => {
-            this.miValue = 0
-            this.duration = 0 
-            this.currentTime = 0
+            this.initValue()
         })
     },
     beforeDestroy() {
