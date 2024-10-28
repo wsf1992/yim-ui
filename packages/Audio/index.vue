@@ -55,7 +55,8 @@ export default {
         return {
             audioElement: new Audio(),
             paused: true,
-            isCanplay: false
+            isCanplay: false,
+            afterPause: false
         }
     },
     watch: {
@@ -86,6 +87,12 @@ export default {
         async playOrPause() {
             if (!this.isCanplay) {
                 await this.beforePlay()
+                if (this.audioElement.paused) {
+                    this.afterPause = false
+                } else {
+                    this.afterPause = true
+                }
+                return
             }
             if (this.audioElement.paused) {
                 this.audioElement.play()
@@ -98,7 +105,7 @@ export default {
         },
         onCanplay() {
             this.isCanplay = true
-            if(this.audioElement.paused) {
+            if (this.afterPause) {
                 this.audioElement.pause()
             } else {
                 this.audioElement.play()
