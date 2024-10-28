@@ -54,7 +54,6 @@ export default {
     data() {
         return {
             audioElement: new Audio(),
-            track: 0,
             paused: true,
             isCanplay: false
         }
@@ -99,6 +98,11 @@ export default {
         },
         onCanplay() {
             this.isCanplay = true
+            if(this.audioElement.paused) {
+                this.audioElement.pause()
+            } else {
+                this.audioElement.play()
+            }
         },
         onPlay() {
             this.paused = false

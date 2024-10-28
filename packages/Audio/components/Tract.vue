@@ -83,7 +83,7 @@ export default {
         this.audioElement.addEventListener('canplay', this.tractChange)
         this.audioElement.addEventListener('error', this.onError)
         this.init()
-        this.tract = Number(this.defaultValue)
+        this.tract = this.defaultValue
     },
     beforeDestroy() {
         this.audioElement.removeEventListener('canplay', this.tractChange)
