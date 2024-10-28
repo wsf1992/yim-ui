@@ -73,18 +73,21 @@ export default {
                 this.rGain.gain.value = 1
             }
             this.context.resume()
+        },
+        onError() {
+            this.lGain = null
+            this.rGain = null
         }
     },
     mounted() {
-        this.audioElement.addEventListener('canplay', () => {
-           this.tractChange()
-        })
-        this.audioElement.addEventListener('error', () => {
-            this.lGain = null
-            this.rGain = null
-        })
+        this.audioElement.addEventListener('canplay', this.tractChange)
+        this.audioElement.addEventListener('error', this.onError)
         this.init()
         this.tract = Number(this.defaultValue)
+    },
+    beforeDestroy() {
+        this.audioElement.removeEventListener('canplay', this.tractChange)
+        this.audioElement.removeEventListener('error', this.onError)
     }
 }
 </script>

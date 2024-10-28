@@ -96,34 +96,37 @@ export default {
         },
         refAudioElement() {
             this.$emit('audio-element', this.audioElement)
+        },
+        onCanplay() {
+            this.isCanplay = true
+        },
+        onPlay() {
+            this.paused = false
+        },
+        onPause() {
+            this.paused = true
+        },
+        onError(event) {
+            this.isCanplay = false
+            this.paused = true
+            this.$emit('error', event)
         }
     },
     mounted() {
         this.audioElement.loop = this.loop
         this.audioElement.autoplay = this.autoplay
         this.refAudioElement()
-        this.audioElement.addEventListener('canplay', () => {
-            this.isCanplay = true
-        })
-        this.audioElement.addEventListener('play', () => {
-            this.paused = false
-        })
-        this.audioElement.addEventListener('pause', () => {
-            this.paused = true
-        })
-        this.audioElement.addEventListener('error', event => {
-            this.isCanplay = false
-            this.paused = true
-            this.$emit('error', event)
-        })
+        this.audioElement.addEventListener('canplay', this.onCanplay)
+        this.audioElement.addEventListener('play', this.onPlay)
+        this.audioElement.addEventListener('pause', this.onPause)
+        this.audioElement.addEventListener('error', this.onError)
     },
     beforeDestroy() {
         this.audioElement.pause()
-        this.audioElement.removeEventListener('loadstart')
-        this.audioElement.removeEventListener('canplay')
-        this.audioElement.removeEventListener('play')
-        this.audioElement.removeEventListener('pause')
-        this.audioElement.removeEventListener('error')
+        this.audioElement.removeEventListener('canplay', this.onCanplay)
+        this.audioElement.removeEventListener('play', this.onPlay)
+        this.audioElement.removeEventListener('pause', this.onPause)
+        this.audioElement.removeEventListener('error', this.onError)
     }
 }
 </script>

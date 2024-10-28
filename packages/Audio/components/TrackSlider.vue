@@ -48,22 +48,27 @@ export default {
             this.miValue = 0
             this.duration = 0
             this.currentTime = 0
+        },
+        onCanplay() {
+            this.duration = this.audioElement.duration
+        },
+        onTimeupdate() {
+            this.currentTime = this.audioElement.currentTime
+            this.miValue = (this.audioElement.currentTime / this.audioElement.duration) * 100
+        },
+        onError() {
+            this.initValue()
         }
     },
     mounted() {
-        this.audioElement.addEventListener('canplay', () => {
-            this.duration = this.audioElement.duration
-        })
-        this.audioElement.addEventListener('timeupdate', () => {
-            this.currentTime = this.audioElement.currentTime
-            this.miValue = (this.audioElement.currentTime / this.audioElement.duration) * 100
-        })
-        this.audioElement.addEventListener('error', () => {
-            this.initValue()
-        })
+        this.audioElement.addEventListener('canplay', this.onCanplay)
+        this.audioElement.addEventListener('timeupdate', this.onTimeupdate)
+        this.audioElement.addEventListener('error', this.onError)
     },
     beforeDestroy() {
-        this.audioElement.removeEventListener('timeupdate')
+        this.audioElement.removeEventListener('canplay', this.onCanplay)
+        this.audioElement.removeEventListener('timeupdate', this.onTimeupdate)
+        this.audioElement.removeEventListener('error', this.onError)
     }
 }
 </script>
