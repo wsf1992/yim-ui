@@ -22,9 +22,9 @@ export default {
             speed: 1,
             speedData: [
                 { label: '0.5X', value: 0.5 },
-                { label: '1X', value: 1 },
+                { label: '1.0X', value: 1 },
                 { label: '1.5X', value: 1.5 },
-                { label: '2X', value: 2 }
+                { label: '2.0X', value: 2 }
             ]
         }
     },
