@@ -1,6 +1,6 @@
 {
     "name": "yim-ui",
-    "version": "1.0.93",
+    "version": "1.0.94",
     "files": [
         "lib/**/*",
         "packages/**/*",
@@ -45,5 +45,8 @@
     },
     "description": "",
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "peerDependencies": {
+        "dayjs": "^1.11.13"
+    }
 }

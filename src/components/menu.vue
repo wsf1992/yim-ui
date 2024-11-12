@@ -13,17 +13,27 @@
             <el-menu-item-group title="Form">
                 <el-menu-item index="/select">select</el-menu-item>
                 <el-menu-item index="/selectinput">SelectInput</el-menu-item>
+                <el-menu-item index="/datetimespicker">DateTimesPicker</el-menu-item>
                 <el-menu-item index="/title">title</el-menu-item>
                 <el-menu-item index="/content">content</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="others">
                 <el-menu-item index="/dialog">Dialog</el-menu-item>
                 <el-menu-item index="/drawer">Drawer</el-menu-item>
-                <el-menu-item index="/tablebox">TableBox</el-menu-item>
                 <el-menu-item index="/audio">Audio</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="page">
+        </el-submenu>
+        <el-submenu index="4">
+            <template slot="title">
+                <span>页面组件</span>
+            </template>
+            <el-menu-item-group title="Table">
+                <el-menu-item index="/table">Table CSS</el-menu-item>
+                <el-menu-item index="/tablebox">TableBox</el-menu-item>
                 <el-menu-item index="/pagination">Pagination</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group title="page">
+                <el-menu-item index="/tabs">tabs</el-menu-item>
                 <el-menu-item index="/titlepage">Titlepage</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
@@ -39,9 +49,6 @@
         <el-menu-item index="/card">
             <span slot="title">卡片</span>
         </el-menu-item>
-        <el-menu-item index="/tabs">
-            <span slot="title">标签页</span>
-        </el-menu-item>
         <el-submenu index="2">
             <template slot="title">
                 <span>公共方法</span>
@@ -56,7 +63,6 @@
             </template>
             <el-menu-item-group title="element组件相关">
                 <el-menu-item index="/cascader">cascader</el-menu-item>
-                <el-menu-item index="/table">table</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="/test">
