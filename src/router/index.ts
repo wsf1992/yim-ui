@@ -21,7 +21,7 @@ const Table = () => import('@/views/Table/index.vue')
 const Drawer = () => import('@/views/Drawer/index.vue')
 const TableBox = () => import('@/views/TableBox/index.vue')
 const Audio = () => import('@/views/Audio/index.vue')
-const Datetimespicker = () => import('@/views/Datetimespicker/index.vue')
+const Datetimespicker = () => import('@/views/DateTimesPicker/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
