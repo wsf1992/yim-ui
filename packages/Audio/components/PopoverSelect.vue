@@ -67,7 +67,7 @@ export default {
     padding: 0;
     margin: 0;
     list-style: none;
-    padding: 11px 5px 8px 5px;
+    padding: 11px 0 8px;
     li {
         font-family: NotoSansHans, NotoSansHans;
         font-weight: 400;
