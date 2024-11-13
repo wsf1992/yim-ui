@@ -77,10 +77,12 @@ export default {
     },
     methods: {
         init() {
-            if (!this.src) return
-            this.isCanplay = false
+            if (!this.src) {
+                this.isCanplay = false
+                this.$refs.trackslider?.initValue()
+                return
+            }
             this.audioElement.src = this.src
-            this.$refs.trackslider.initValue()
             this.audioElement.crossOrigin = 'anonymous'
             this.audioElement.load()
         },
