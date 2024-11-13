@@ -6,8 +6,16 @@
 export default {
     name: 'Download',
     inject: ['audioElement'],
+    props: {
+        customDownLoad: Boolean,
+        downloadFn: Function
+    },
     methods: {
         download() {
+            if(this.customDownLoad) {
+                this.downloadFn()
+                return
+            }
             const a = document.createElement('a')
             if (!this.audioElement.src) return this.$emit('download-error')
             a.href = this.audioElement.src

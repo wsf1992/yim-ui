@@ -5,7 +5,7 @@
         <speed class="m-l-12"></speed>
         <tract class="m-l-12" v-if="isDual" :tractData="tractData"></tract>
         <volume class="m-l-12"></volume>
-        <download class="m-l-12" @download-error="$emit('download-error')"></download>
+        <download class="m-l-12" :customDownLoad="customDownLoad" :downloadFn="downloadFn" @download-error="$emit('download-error')"></download>
     </div>
 </template>
 
@@ -49,7 +49,9 @@ export default {
             ]
         },
         isDual: Boolean,
-        close: Boolean
+        close: Boolean,
+        customDownLoad: Boolean,
+        downloadFn: Function
     },
     data() {
         return {

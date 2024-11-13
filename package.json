@@ -1,6 +1,6 @@
 {
     "name": "yim-ui",
-    "version": "1.0.97",
+    "version": "1.0.99",
     "files": [
         "lib/**/*",
         "packages/**/*",
