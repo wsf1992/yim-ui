@@ -70,8 +70,8 @@ export default {
                 const popover = this.$refs.miPopover.popperElm
                 if (!popover.contains(target)) {
                     this.visible = false
+                    cancelAnimationFrame(this.frameId)
                 }
-                cancelAnimationFrame(this.frameId)
             } catch (error) {}
         },
         checkPosition() {
