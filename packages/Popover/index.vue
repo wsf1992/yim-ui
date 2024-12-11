@@ -20,10 +20,7 @@ export default {
             type: Boolean,
             default: false
         },
-        width: {
-            type: String,
-            default: '500'
-        },
+        width: {},
         placement: {
             type: String,
             default: 'bottom'
@@ -94,7 +91,7 @@ export default {
         },
         updatePopoverPosition() {
             if (this.visible) {
-                this.$refs.ymPopover.updatePopper()
+                this.$refs.miPopover.updatePopper()
             }
         }
     },
