@@ -1,9 +1,6 @@
 <template>
     <el-popover :placement="placement" :width="width" trigger="manual" v-model="visible" ref="miPopover" popper-class="mi-popover">
         <slot></slot>
-        <template v-slot:reference>
-            <slot name="reference"></slot>
-        </template>
     </el-popover>
 </template>
 
@@ -32,6 +29,13 @@ export default {
             default: 'bottom'
         }
     },
+    data() {
+        return {
+            frameId: null,
+            lastPosition: { x: 0, y: 0 },
+            targetElement: null
+        }
+    },
     computed: {
         visible: {
             get() {
@@ -56,6 +60,9 @@ export default {
                 pop.referenceElm = window.event.target
                 pop.createPopper()
                 pop.doShow()
+                this.targetElement = window.event.target
+                this.lastPosition = this.getPosition(this.targetElement)
+                this.checkPosition()
             } else {
                 this.doClose()
             }
@@ -67,7 +74,28 @@ export default {
                 if (!popover.contains(target)) {
                     this.visible = false
                 }
+                cancelAnimationFrame(this.frameId)
             } catch (error) {}
+        },
+        checkPosition() {
+            const currentPosition = this.getPosition(this.targetElement)
+            if (
+                this.lastPosition.x !== currentPosition.x ||
+                this.lastPosition.y !== currentPosition.y
+            ) {
+                this.updatePopoverPosition()
+            }
+            this.lastPosition = currentPosition
+            this.frameId = requestAnimationFrame(this.checkPosition)
+        },
+        getPosition(el) {
+            const rect = el.getBoundingClientRect()
+            return { x: rect.left, y: rect.top }
+        },
+        updatePopoverPosition() {
+            if (this.visible) {
+                this.$refs.ymPopover.updatePopper()
+            }
         }
     },
     created() {
@@ -75,6 +103,7 @@ export default {
     },
     destroyed() {
         document.removeEventListener('click', this.doClose, true)
+        cancelAnimationFrame(this.frameId)
     }
 }
 </script>

@@ -22,6 +22,7 @@ const Drawer = () => import('@/views/Drawer/index.vue')
 const TableBox = () => import('@/views/TableBox/index.vue')
 const Audio = () => import('@/views/Audio/index.vue')
 const Datetimespicker = () => import('@/views/DateTimesPicker/index.vue')
+const Popover = () => import('@/views/Popover/index.vue')
 const routes = [
     { path: '/test', component: Test },
     { path: '/', component: Home },
@@ -45,6 +46,7 @@ const routes = [
     { path: '/tablebox', component: TableBox },
     { path: '/audio', component: Audio },
     { path: '/datetimespicker', component: Datetimespicker },
+    { path: '/popover', component: Popover }
 ]
 
 export default new VueRouter({ routes })

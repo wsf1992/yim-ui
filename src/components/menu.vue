@@ -19,6 +19,7 @@
             </el-menu-item-group>
             <el-menu-item-group title="others">
                 <el-menu-item index="/dialog">Dialog</el-menu-item>
+                <el-menu-item index="/popover">Popover</el-menu-item>
                 <el-menu-item index="/drawer">Drawer</el-menu-item>
                 <el-menu-item index="/audio">Audio</el-menu-item>
             </el-menu-item-group>
