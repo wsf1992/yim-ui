@@ -1,6 +1,9 @@
 <template>
     <el-popover :placement="placement" :width="width" trigger="manual" v-model="visible" ref="miPopover" popper-class="mi-popover">
         <slot></slot>
+        <template v-slot:reference>
+            <slot name="reference"></slot>
+        </template>
     </el-popover>
 </template>
 
