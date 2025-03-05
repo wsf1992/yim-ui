@@ -27,7 +27,7 @@ export default (/** if you want to use mode : { mode }*/) => {
         },
         build: {
             target: ['es2015'],
-            outDir: 'dist'
+            outDir: 'docs'
         },
         plugins: [
             Components({
