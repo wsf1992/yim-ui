@@ -10,7 +10,7 @@ const REPLACEMENT = `${path.resolve(__dirname, '../src')}/`
 export default (/** if you want to use mode : { mode }*/) => {
     return defineConfig({
         mode: 'production',
-        base: '/',
+        base: './',
         root: path.resolve(__dirname, '../'),
         resolve: {
             alias: [
@@ -31,7 +31,7 @@ export default (/** if you want to use mode : { mode }*/) => {
         },
         plugins: [
             Components({
-                resolvers: [ElementUiResolver()],
+                resolvers: [ElementUiResolver()]
             }),
             vue({
                 include: [/\.vue$/, /\.md$/]
